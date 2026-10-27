@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    container_name: kilo_cell_app
+    restart: always
+    ports:
+      # Container's nginx listens on 80; published to host 8080 so a
+      # host-level nginx + certbot (handling 80/443 and TLS for
+      # globalhawk.us) can reverse-proxy to this. See DEPLOY_TO_DIGITALOCEAN.md.
+      - "8080:80"
+    depends_on:
+      - presence
+
+  presence:
+    build: ./presence
+    container_name: kilo_cell_presence
+    restart: always
+    environment:
+      # REQUIRED for presenter mode to work -- set a real passphrase here
+      # before deploying. Students never see this value; only whoever
+      # types it into the app's presenter-mode prompt can broadcast.
+      - PRESENTER_TOKEN=AAss123!@

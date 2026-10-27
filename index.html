@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMEN 615: Bioengineered Cellular Systems • Texas A&M University</title>
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <div class="logo-area">
+      <span class="logo-badge">TEXAS A&M</span>
+      <span class="site-title">BMEN 615: Bioengineered Cellular Systems</span>
+    </div>
+
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-paper="intro">Introduction</button>
+      <button class="tab-btn" data-paper="paper4">1937: Whole-Organ</button>
+      <button class="tab-btn" data-paper="paper2">2022: Lymphangion</button>
+      <button class="tab-btn" data-paper="paper3">2024: L-Chip Sprouting</button>
+      <button class="tab-btn" data-paper="paper1">2026: Blood-Lymph</button>
+      <button class="tab-btn" data-paper="frontier" style="color: #ff9999; font-weight: 800;">★ Evaluation & Frontier</button>
+      <button class="tab-btn" data-paper="newquestions" style="color: #c084fc; font-weight: 800;">✦ New Questions</button>
+      <button class="tab-btn" data-paper="presentation" style="color: var(--accent-gold); font-weight: 800;">▶ Presentation</button>
+    </nav>
+
+    <!-- Mobile-only dropdown equivalent of .nav-tabs (shown below ~900px via CSS) -->
+    <select class="mobile-nav-select" id="mobile-nav-select" aria-label="Navigate to section">
+      <option value="intro" selected>Introduction</option>
+      <option value="paper4">1937: Whole-Organ</option>
+      <option value="paper2">2022: Lymphangion</option>
+      <option value="paper3">2024: L-Chip Sprouting</option>
+      <option value="paper1">2026: Blood-Lymph</option>
+      <option value="frontier">★ Evaluation & Frontier</option>
+      <option value="newquestions">✦ New Questions</option>
+      <option value="presentation">▶ Presentation</option>
+    </select>
+
+    <div class="header-actions">
+      <span id="presenter-mode-indicator" style="display: none;">🎤 Presenter Mode</span>
+      <button class="btn-secondary" id="btn-push-everyone" style="display: none; color: #fbbf24; border-color: rgba(251, 191, 36, 0.45);" title="Jump every connected student straight to your current screen">
+        📍 Push to Everyone
+      </button>
+      <button class="btn-secondary" id="btn-refresh-everyone" style="display: none; color: #38bdf8; border-color: rgba(56, 189, 248, 0.45);" title="Hard-reload every connected student's page in 5 seconds, landing them back on your current screen">
+        🔄 Refresh Everyone
+      </button>
+      <button class="btn-secondary" id="btn-open-glossary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Key Terms Primer
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- 0. Introduction: The Lymphatic System -->
+    <div id="intro-view" class="frontier-container" style="display: none;">
+      <div class="frontier-hero">
+        <span class="frontier-badge">A Textbook of Histology, 1957</span>
+        <h1 class="frontier-title">Introduction: The Lymphatic System</h1>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          Presented by Justin Houck, PhD Student, Department of Animal Science &mdash; BMEN 615: Bioengineered Cellular Systems
+        </p>
+      </div>
+
+      <!-- Classical Anatomy -->
+      <div class="interactive-card" style="border-left: 4px solid var(--accent-lymph);">
+        <div class="card-header">
+          <div class="card-title"><span>⚡</span> What the Lymphatic System Actually Does</div>
+          <span class="badge-tag" style="background: rgba(16,185,129,0.15); color: var(--accent-lymph);">Function, Live</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-silver); margin-bottom: 1rem;">
+          Strip the anatomy away for a second and ask what this system is actually <em>for</em>. Blood capillaries are leaky by design &mdash; pressure pushes roughly 20 liters of plasma a day out into the tissues, and only about 17 of those liters get pulled straight back in by the venous side. The lymphatic system exists to handle the other ~3 liters, plus everything too large to slip back into a vein unassisted. Four jobs fall out of that one basic leak:
+        </p>
+        <ul style="font-size: 0.9rem; line-height: 1.8; color: var(--text-silver); padding-left: 1.3rem; margin-bottom: 1.2rem;">
+          <li><strong style="color:#fff;">Fluid balance (drainage).</strong> Blind-ended lymphatic capillaries pick up the interstitial fluid blood vessels leave behind. When this fails, tissue swells &mdash; that failure mode has a name: lymphedema.</li>
+          <li><strong style="color:#fff;">Protein &amp; macromolecule return.</strong> Plasma proteins that leak out of blood capillaries are too large to re-enter a venule on their own; lymph is their only way back into circulation.</li>
+          <li><strong style="color:#fff;">Fat absorption.</strong> In the gut specifically, lacteals absorb dietary fat as chylomicrons and carry it to the thoracic duct, bypassing the liver on the first pass.</li>
+          <li><strong style="color:#fff;">Immune surveillance.</strong> Lymph carries antigen, pathogens, and antigen-presenting cells from tissue into lymph nodes, where patrolling lymphocytes can encounter them and activate &mdash; a node is a checkpoint, not just a filter.</li>
+        </ul>
+        <p style="font-size: 0.9rem; line-height: 1.75; color: var(--text-silver); margin-bottom: 1.2rem;">
+          None of this moves the way blood does &mdash; there is no central pump. Lymph is pushed along passively (by skeletal muscle contracting, and by breathing) and actively by the <strong style="color:#fff;">lymphangion</strong>: the vessel segment between two one-way valves, lined on the inside with a thin layer of cells and wrapped on the outside in smooth muscle that contracts rhythmically, segment by segment, like a chain of hands passing a bucket forward. Watch the whole circuit below.
+        </p>
+
+        <div class="lymph-live-model">
+          <div class="lymph-model-label">Live Model &mdash; Watch the System Circulate</div>
+          <video class="lymph-intro-video" id="intro-lymph-video" autoplay loop muted playsinline>
+            <source src="assets/videos/intro_lymph_system.mp4" type="video/mp4">
+          </video>
+          <div class="lymph-fn-row">
+            <span class="lymph-fn-pill">Removes Toxins &amp; Waste</span>
+            <span class="lymph-fn-pill">Transports &amp; Balances Fluids</span>
+            <span class="lymph-fn-pill">Supports Immune System</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem;">
+            Fluid and immune cells draining from the tissues, moving through lymph nodes for filtering and immune surveillance, and circulating on to the lymphatic organs &mdash; the three functions above, in motion, all at once.
+          </p>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1.4rem; margin-bottom: 0.6rem;">
+          Every stage above is exactly what a trained eye could already see under an 1890s&ndash;1950s light microscope &mdash; Maximow &amp; Bloom's own plates, photographed directly from the 1957 textbook:
+        </p>
+        <div class="figures-gallery" id="intro-figures-gallery"><!-- Populated by app.js --></div>
+      </div>
+
+      <!-- What the Chip Papers Are Trying to Mimic -->
+      <div class="interactive-card" style="border-left: 4px solid var(--accent-gold);">
+        <div class="card-header">
+          <div class="card-title"><span>🧫</span> What Papers 1, 2 &amp; 3 Are Trying to Mimic</div>
+          <span class="badge-tag" style="background: rgba(217,119,6,0.15); color: var(--accent-gold);">From Live Model to Chip</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-silver); margin-bottom: 1rem;">
+          None of the three lab-on-a-chip papers try to rebuild the whole circuit above. Each one isolates a single piece of it &mdash; the leak, the pump, or the growth of the network itself &mdash; and asks whether that piece can be reproduced, measured, and manipulated outside the body.
+        </p>
+        <div class="mimic-grid">
+          <div class="mimic-card" style="border-top-color: var(--accent-lymph);">
+            <div class="mimic-card-title" style="color: #6ee7b7;">2022 mimics: the pump</div>
+            <div class="mimic-card-sub">The lymphangion itself &mdash; the vessel wall that squeezes to push lymph forward between valves.</div>
+            <div class="mimic-card-detail">Selahi et al. build a single lymphangion: a collagen tube lined with lymphatic-vessel lining cells and wrapped in lymphatic muscle cells. Growing the two cell types together, under fluid shear, shifts the muscle cells to wrap more around the vessel's circumference (mean ~61&deg;, vs. ~31&deg; when the muscle cells are grown alone) &mdash; a sign of the vessel segment organizing itself to squeeze, the mechanism shown as the traveling contraction wave above.</div>
+          </div>
+          <div class="mimic-card" style="border-top-color: #38bdf8;">
+            <div class="mimic-card-title" style="color: #7dd3fc;">2024 mimics: how the network gets built</div>
+            <div class="mimic-card-sub">Not the adult vessel, but a new, dead-ended capillary sprouting from an existing one.</div>
+            <div class="mimic-card-detail">Tronolone et al. watch lymphatic-vessel lining cells sprout from a parent vessel into a gel over four days, driven by chemical gradients and fluid flow acting together. This is the live model's green capillary network before it exists &mdash; the process behind how the system regrows after injury, and how tumors co-opt it to spread (new lymphatic-vessel growth, or lymphangiogenesis).</div>
+          </div>
+          <div class="mimic-card" style="border-top-color: var(--accent-blood);">
+            <div class="mimic-card-title" style="color: #ff9999;">2026 mimics: the leak &amp; pickup</div>
+            <div class="mimic-card-sub">The first moment in the live model &mdash; fluid and immune cells crossing from the blood side into the lymphatic side.</div>
+            <div class="mimic-card-detail">Gray-Scherr et al. build two separate, never-connecting vessel networks (blood and lymphatic) sharing one continuous gel. They show that the gel filters molecules by size (10 and 70 kilodalton dextran cross through; a much larger 2000 kilodalton one is blocked) and that an inflammatory signal (TNF-alpha) increases how many T-cells cross from the blood network into the lymphatic network &mdash; the chip-scale version of the drainage and immune pickup animated above.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The 1957 Blind Spot -->
+      <div class="interactive-card" style="border-left: 4px solid var(--tamu-maroon-bright);">
+        <div class="card-header">
+          <div class="card-title"><span>🔬</span> The 1957 Blind Spot: What They Could See But Not Yet Explain</div>
+          <span class="badge-tag" style="background: rgba(120,0,0,0.3); color: #ff9999;">Revised Since 1957</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-silver); margin-bottom: 1rem;">
+          The late 1950s and early 1960s were the final years of "pre-modern" immunology &mdash; this exact edition sits right before the field was transformed. Four specific claims in Chapter 11 read very differently today:
+        </p>
+        <div class="tradeoff-grid" style="margin-bottom: 0.5rem;">
+          <div class="tradeoff-card sacrificed-card">
+            <div class="tradeoff-header" style="color: #f87171;"><span>⚠️</span> What the 1957 Text Said</div>
+            <ul class="tradeoff-list">
+              <li>A lymphocyte is just "a lymphocyte" &mdash; no visible way to tell one apart from another under the microscope.</li>
+              <li>The function of the thymus is "largely unknown"; it shrinks with age, so some assumed it was a vestigial "graveyard" for dying cells.</li>
+              <li>The small lymphocyte is described as an undifferentiated stem cell circulating in the blood, able to turn into other connective-tissue or blood cells &mdash; a direct extension of Maximow's own unitarian stem-cell theory.</li>
+              <li>The <em>reticuloendothelial system</em> (RES): reticular cells and sinus-lining endothelial cells were believed able to transform directly into phagocytic macrophages.</li>
+            </ul>
+          </div>
+          <div class="tradeoff-card gained-card">
+            <div class="tradeoff-header" style="color: #34d399;"><span>✨</span> What We Know Now</div>
+            <ul class="tradeoff-list">
+              <li>Lymphocytes split into distinct T-cell and B-cell lineages (plus NK cells), established through bursa/thymectomy experiments in the mid-1960s &mdash; identical under a light microscope, completely different jobs.</li>
+              <li>Jacques Miller's thymectomy experiments (1961) showed the thymus is where T-cells mature &mdash; the immune system's "training school," not a graveyard.</li>
+              <li>A small lymphocyte is a specialized immune cell on patrol, waiting to be activated by a specific antigen &mdash; not a generic stem cell.</li>
+              <li>Macrophages are now known to be a separate cell lineage (monocyte-derived) from the structural reticular cells of the node &mdash; the modern "mononuclear phagocyte system" replaced the RES concept.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+          None of this is a knock against the book. It shows a useful distinction: <strong style="color: var(--text-silver);">anatomy</strong> &mdash; what a trained eye can see and draw &mdash; was worked out decades before <strong style="color: var(--text-silver);">physiology and immunology</strong> &mdash; how those same structures actually work at the cell and molecule level &mdash; caught up.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 1. Single Paper Deep-Dive View -->
+    <div id="single-paper-view">
+      <!-- Paper Banner Header -->
+      <div class="paper-banner">
+        <div class="paper-meta" id="paper-badge">Lab Chip 2026</div>
+        <h1 class="paper-title" id="paper-title">3D Microfluidic Model of Blood & Lymphatic Exchange</h1>
+        <div class="paper-authors" id="paper-authors">Delaney Gray-Scherr, Terry Ching, Christopher S. Chen, et al.</div>
+      </div>
+
+      <!-- Interactive Workspace Grid -->
+      <div class="interactive-grid">
+        <!-- 1. Lymph System in Action (video) -->
+        <div class="interactive-card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span id="viewport-title-text">The System in Action</span>
+            </div>
+          </div>
+
+          <div class="viewport-3d-box" id="paper-video-box">
+            <video class="paper-video" id="paper-video" autoplay loop muted playsinline></video>
+          </div>
+
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);" id="viewport-caption">
+            Loading...
+          </div>
+        </div>
+
+        <!-- 2. Interactive Experimental Comparison & Animation -->
+        <div class="interactive-card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Comparing Conditions
+            </div>
+            <span class="badge-tag">Drag to Compare</span>
+          </div>
+
+          <!-- Special Paper 1: T-cell Trafficking Stepper -->
+          <div id="paper1-tcell-box" style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--accent-gold);">
+              How T-Cells Move From Blood to Lymph (Fig. 6):
+            </div>
+            <div class="trafficking-stepper">
+              <div class="step-chip active" data-stage="1">1. Blood Circulation</div>
+              <div class="step-chip" data-stage="2">2. Barrier Transmigration</div>
+              <div class="step-chip" data-stage="3">3. Lymphatic Intravasation</div>
+            </div>
+            <div id="tcell-stage-desc" style="font-size: 0.8rem; color: var(--text-main); background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 4px; border-left: 3px solid var(--accent-gold); margin-bottom: 0.75rem;">
+              Stage 1: T-cells flow through the blood vessels (crimson) and start sticking to the vessel wall.
+            </div>
+          </div>
+
+          <!-- Special Paper 3: Day 1-4 Time Scrubber -->
+          <div id="paper3-scrubber-box" style="display: none; margin-bottom: 0.75rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--accent-lymph);">
+              New Vessel Growth Over 4 Days (Fig. 1D):
+            </div>
+            <div class="scrubber-controls">
+              <input type="range" class="timeline-slider" id="timeline-slider" min="0" max="3" value="3" step="1">
+            </div>
+            <div class="timeline-ticks">
+              <span>Day 1: Budding</span>
+              <span>Day 2: Elongating</span>
+              <span>Day 3: Branching</span>
+              <span>Day 4: Lumen Forms</span>
+            </div>
+            <div id="scrubber-caption" style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--accent-lymph);">
+              Day 4: Tube-shaped capillaries up to ~1 mm long &mdash; the paper's reported Day-4 endpoint.
+            </div>
+          </div>
+
+          <!-- Split Slider ("Curtain View") -->
+          <div class="split-slider-container" id="split-slider-container">
+            <div class="split-layer bottom-layer">
+              <img id="split-img-right" src="" alt="Right Condition">
+              <div class="split-label right-label" id="split-label-right">Right Condition</div>
+            </div>
+            <div class="split-layer top-layer" id="split-top-layer">
+              <img id="split-img-left" src="" alt="Left Condition">
+              <div class="split-label left-label" id="split-label-left">Left Condition</div>
+            </div>
+            <div class="split-handle" id="split-handle">◀ ▶</div>
+          </div>
+
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+            Drag the center handle left and right to compare the two conditions side by side.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.5. Why This Paper Matters & Its Novel Discovery -->
+      <div class="interactive-card why-matters-card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+            Why This Paper Matters
+          </div>
+          <span class="badge-tag" id="why-matters-badge" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.1);">Novel Discovery</span>
+        </div>
+
+        <div class="lifespan-body">
+          <div class="lifespan-q-banner">
+            <div class="lifespan-q-title">
+              <span style="color: #34d399;">The Discovery:</span> What did this paper actually find that no one had shown before?
+            </div>
+            <div class="lifespan-q-ans" id="why-matters-discovery">
+              <!-- Populated via app.js -->
+            </div>
+          </div>
+
+          <div class="lifespan-q-banner" style="margin-bottom: 0;">
+            <div class="lifespan-q-title">
+              <span style="color: #34d399;">Why It Matters:</span> What does this open up for the field?
+            </div>
+            <div class="lifespan-q-ans" id="why-matters-significance">
+              <!-- Populated via app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Operational Lifespan & Physiological Degradation Limits -->
+      <div class="interactive-card lifespan-card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            How Long It Works
+          </div>
+          <span class="badge-tag" id="lifespan-badge" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1);">Day 5 Standard Timepoint</span>
+        </div>
+
+        <div class="lifespan-body">
+          <div class="lifespan-meta-grid">
+            <div class="lifespan-stat-box">
+              <span class="stat-label">How Long It Was Tested</span>
+              <span class="stat-value" id="lifespan-window">Day 5 (not reported beyond this)</span>
+            </div>
+            <div class="lifespan-stat-box">
+              <span class="stat-label">Length of Each Measurement</span>
+              <span class="stat-value" id="lifespan-assay-time">3–4 Hours</span>
+            </div>
+            <div class="lifespan-stat-box">
+              <span class="stat-label">Why It Stopped</span>
+              <span class="stat-value" id="lifespan-limiting-factor">Not reported in the paper</span>
+            </div>
+          </div>
+
+          <div class="lifespan-q-banner">
+            <div class="lifespan-q-title">
+              <span style="color: var(--accent-gold);">Question:</span> How long would this keep working? How long could the experiment run before it would stop working the way it's meant to?
+            </div>
+            <div class="lifespan-q-ans" id="lifespan-main-desc">
+              <!-- Populated via app.js -->
+            </div>
+          </div>
+
+          <div class="lifespan-breakdown-grid">
+            <div class="breakdown-card">
+              <div class="breakdown-tag" style="color: #f87171;">⚠️ What Could Cause It to Fail (Biology)</div>
+              <div class="breakdown-desc" id="lifespan-bio-text">...</div>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-tag" style="color: #fbbf24;">⚙️ What Could Cause It to Fail (Physical)</div>
+              <div class="breakdown-desc" id="lifespan-phys-text">...</div>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-tag" style="color: #38bdf8;">🛡️ How It Could Be Extended</div>
+              <div class="breakdown-desc" id="lifespan-workaround-text">...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Paper Interrogation: Core Scientific Q&A for this Paper -->
+      <div class="interactive-card paper-qa-card" id="paper-qa-card">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Questions & Answers About This Paper
+          </div>
+          <div class="qa-filter-tabs" id="qa-filter-tabs">
+            <button class="qa-filter-btn active" data-cat="all">All Questions (12)</button>
+            <button class="qa-filter-btn" data-cat="Biological System & Cell Origins">Biology &amp; Cells</button>
+            <button class="qa-filter-btn" data-cat="Biophysical Dynamics & Fluid Mechanics">Forces &amp; Shear</button>
+            <button class="qa-filter-btn" data-cat="Engineering Control & Sacrifices">Control &amp; Limits</button>
+            <button class="qa-filter-btn" data-cat="Analytical Context, Disease & Translation">Disease &amp; Translation</button>
+          </div>
+        </div>
+        <div class="paper-qa-list" id="paper-qa-list">
+          <!-- Dynamically populated per paper from evaluation.json -->
+        </div>
+      </div>
+
+      <!-- High-Resolution Figures Gallery (Deep Zoom) -->
+      <div class="interactive-card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            All Figures (Click to Zoom In)
+          </div>
+          <span class="badge-tag">Original Figures from the Paper</span>
+        </div>
+
+        <div class="figures-gallery" id="figures-gallery">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Dedicated Cross-Paper Evaluation & The Proposed Frontier View -->
+    <div id="frontier-view" style="display: none;" class="frontier-container">
+      <!-- Hero Banner -->
+      <div class="frontier-hero">
+        <span class="frontier-badge">Summary & Open Questions</span>
+        <h1 class="frontier-title">Comparing the Papers & Where This Research Is Headed</h1>
+        <p class="frontier-subtitle">
+          These four studies span 90 years, from whole-organ perfusion to lab-on-a-chip vessel networks. This page compares them side by side, and lays out specific open questions the next generation of this research would need to answer.
+        </p>
+      </div>
+
+      <!-- Executive Overall Evaluation Summary Card -->
+      <div class="interactive-card" style="border-left: 4px solid var(--tamu-maroon-bright);">
+        <div class="card-header">
+          <div class="card-title">
+            <span>⚖️</span> How the Studies Compare
+          </div>
+          <span class="badge-tag" style="background: rgba(120, 0, 0, 0.4); color: #ff9999;">Summary</span>
+        </div>
+        <p id="overall-exec-summary" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-silver); margin-bottom: 1.5rem;">
+          <!-- Populated from evaluation.json -->
+        </p>
+
+        <!-- Cross-Paper Comparison Scorecard Matrix Table -->
+        <div style="margin-bottom: 0.75rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">Scorecard</h3>
+        </div>
+        <div class="scorecard-table-wrapper">
+          <table class="scorecard-table" id="scorecard-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">What's Compared</th>
+                <th style="width: 20%; color: var(--accent-blood);">Paper 1: Blood-Lymph<br><span style="font-size: 0.7rem; font-weight: 400;">Gray-Scherr 2026</span></th>
+                <th style="width: 20%; color: var(--accent-lymph);">Paper 2: Lymphangion<br><span style="font-size: 0.7rem; font-weight: 400;">Selahi 2022</span></th>
+                <th style="width: 20%; color: #38bdf8;">Paper 3: L-Chip Sprouting<br><span style="font-size: 0.7rem; font-weight: 400;">Tronolone 2024</span></th>
+                <th style="width: 20%; color: var(--accent-gold);">Paper 4: Whole Organ<br><span style="font-size: 0.7rem; font-weight: 400;">Carrel 1937</span></th>
+              </tr>
+            </thead>
+            <tbody id="scorecard-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Historical Evolution Timeline & Arc -->
+      <div class="interactive-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>⏱️</span> What Changed Over 90 Years
+          </div>
+          <span class="badge-tag">1937 to 2026</span>
+        </div>
+        <div class="timeline-track" id="timeline-container">
+          <!-- Populated from evaluation.json -->
+        </div>
+      </div>
+
+      <!-- Macro vs Micro: The Fundamental Bioengineering Trade-Off Analysis -->
+      <div class="tradeoff-grid">
+        <div class="tradeoff-card gained-card">
+          <div class="tradeoff-header" style="color: #34d399;">
+            <span>✨</span> What Lab-on-a-Chip Devices Gained
+          </div>
+          <ul class="tradeoff-list" id="tradeoffs-gained-list">
+            <!-- Populated from evaluation.json -->
+          </ul>
+        </div>
+
+        <div class="tradeoff-card sacrificed-card">
+          <div class="tradeoff-header" style="color: #f87171;">
+            <span>⚠️</span> What Got Left Out
+          </div>
+          <ul class="tradeoff-list" id="tradeoffs-sacrificed-list">
+            <!-- Populated from evaluation.json -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Open Questions: Where This Research Could Go Next -->
+      <div class="interactive-card" style="border-color: var(--accent-gold); margin-top: 1rem;">
+        <div class="card-header">
+          <div class="card-title" style="color: var(--accent-gold);">
+            <span>🚀</span> Where This Research Could Go Next
+          </div>
+          <span class="badge-tag" style="background: rgba(251, 191, 36, 0.15); color: var(--accent-gold);">5 Open Directions</span>
+        </div>
+        <div class="frontier-grid" id="predictions-container">
+          <!-- Populated from evaluation.json -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.5. New Questions: Reproductive & Stress-Physiology Lens -->
+    <div id="newquestions-view" style="display: none;" class="frontier-container">
+      <div class="frontier-hero">
+        <span class="frontier-badge" style="background: rgba(192, 132, 252, 0.15); color: #c084fc; border-color: rgba(192, 132, 252, 0.35);">A Reproductive &amp; Stress-Physiology Lens</span>
+        <h1 class="frontier-title">Old Experiments, New Instruments: Leaky Gut in Stressed Animals</h1>
+        <p class="frontier-subtitle">
+          Viewed through stress and reproductive physiology &mdash; e.g., Thomas H. Welsh, Jr., Regents Professor, Texas A&amp;M AgriLife Research Faculty Fellow, Physiology of Reproduction &mdash; these four systems map onto a well-established pathway in livestock stress research: <strong style="color:#fff;">stress &rarr; a leaky gut barrier &rarr; bacterial endotoxin reaches blood and lymph &rarr; systemic inflammation &rarr; reduced reproductive performance.</strong> That is the same barrier-permeability problem these chips were built to study, just in a different epithelium.
+        </p>
+      </div>
+
+      <!-- The Mechanistic Hook -->
+      <div class="interactive-card" style="border-left: 4px solid #c084fc;">
+        <div class="card-header">
+          <div class="card-title"><span>🔗</span> Why These Four Papers Are Relevant to Leaky Gut</div>
+          <span class="badge-tag" style="background: rgba(192,132,252,0.15); color: #c084fc;">The Gut-Lymph Pathway</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-silver);">
+          During heat or psychological stress, reduced gut blood flow and elevated cortisol break down the gut epithelial barrier. Endotoxin (LPS) and bacterial products that would normally stay in the gut lumen cross into circulation &mdash; largely via the mesenteric lymphatics, bypassing the liver's first-pass filtering (the "gut-lymph pathway" of stress-induced systemic inflammation). That is mechanistically the same event paper 1 was built to watch directly: molecules and immune cells crossing a controllable barrier from one vascular compartment into an independent lymphatic network. The open question is whether that same chip architecture, barrier-rescue mechanism, and sprouting logic can be repointed at gut tissue and real stress hormones instead of TNF-&alpha;.
+        </p>
+      </div>
+
+      <!-- Per-Paper New Experiments -->
+      <div class="interactive-card" style="border-left: 4px solid var(--accent-lymph);">
+        <div class="card-header">
+          <div class="card-title"><span>🧪</span> What New Experiments Does This Open Up?</div>
+          <span class="badge-tag" style="background: rgba(16,185,129,0.15); color: var(--accent-lymph);">Re-Running Old Papers With New Tech</span>
+        </div>
+        <div class="mimic-grid newq-grid">
+          <div class="mimic-card" style="border-top-color: var(--accent-blood);">
+            <div class="mimic-card-title" style="color: #ff9999;">From Paper 1 (2026): watch the leak happen live</div>
+            <div class="mimic-card-sub">Rebuild the dual-network chip with gut epithelium in place of blood-endothelial cells.</div>
+            <div class="mimic-card-detail">Re-run the paper's own size-exclusion tracer panel (10 / 70 / 2000 kDa), but challenge the barrier with cortisol or LPS instead of TNF-&alpha;. That directly visualizes, in real time, what leaky-gut research has only been able to infer indirectly from blood endotoxin assays in live animals: endotoxin-sized molecules crossing a stressed epithelial barrier into a lymphatic network.</div>
+          </div>
+          <div class="mimic-card" style="border-top-color: var(--accent-lymph);">
+            <div class="mimic-card-title" style="color: #6ee7b7;">From Paper 2 (2022): test if the protective crosstalk survives chronic stress</div>
+            <div class="mimic-card-sub">Re-run the muscle-cell barrier-rescue assay with a stress hormone instead of an inflammatory cytokine.</div>
+            <div class="mimic-card-detail">Paper 2 showed LMC co-culture partially protects the endothelial barrier from a single TNF-&alpha; pulse. Does that same protection hold against cortisol or LPS? And does it erode under repeated, chronic stress exposure rather than one pulse &mdash; which is closer to how real animals experience stress?</div>
+          </div>
+          <div class="mimic-card" style="border-top-color: #38bdf8;">
+            <div class="mimic-card-title" style="color: #7dd3fc;">From Paper 3 (2024): ask whether stress rewires drainage capacity itself</div>
+            <div class="mimic-card-sub">Does chronic stress remodel gut lymphatic vessels, not just leak through them?</div>
+            <div class="mimic-card-detail">Paper 3 showed that interstitial flow plus a specific factor (ESM-1) drives new lymphatic sprouting. Chronic gut inflammation is known to remodel mesenteric lymphatics over time &mdash; the new question is whether a stress-altered interstitial flow pattern in the gut wall is itself enough to drive abnormal lymphatic growth, permanently changing how much endotoxin the gut's lymphatics can clear.</div>
+          </div>
+          <div class="mimic-card" style="border-top-color: var(--accent-gold);">
+            <div class="mimic-card-title" style="color: #fbbf24;">From Paper 4 (1937): isolate one stressor, get a clean causal answer</div>
+            <div class="mimic-card-sub">Carrel's one-organ, one-factor logic, updated for a chip.</div>
+            <div class="mimic-card-detail">Carrel's trick was perfusing a single defined factor (Witte's peptone) through an isolated organ to get a causal answer a whole animal could never give cleanly, because too many other things are changing at once. The modern equivalent: perfuse an isolated gut-epithelium-on-chip with just cortisol, or just LPS, in isolation &mdash; something a live, stressed animal study can never fully separate from everything else changing systemically during real stress.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reanalyzing Old Data -->
+      <div class="interactive-card" style="border-left: 4px solid var(--accent-gold); margin-top: 1rem;">
+        <div class="card-header">
+          <div class="card-title" style="color: var(--accent-gold);"><span>📊</span> Old Data, New Ruler</div>
+          <span class="badge-tag" style="background: rgba(251, 191, 36, 0.15); color: var(--accent-gold);">Re-Analysis, Not New Experiments</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-silver);">
+          None of this requires new animals or new trials to start. The standardized molecular-weight tracer panel (10 / 70 / 2000 kDa) and the fold-change immune-trafficking analysis paper 1 uses could be retrofitted as a quantitative barrier-leak severity scale against <strong style="color:#fff;">archived samples from past heat-stress trials</strong> &mdash; a sharper, more directly comparable readout than the cruder in vivo gut-permeability markers (e.g., single-point blood endotoxin or FITC-dextran gavage assays) typically used in livestock stress physiology today.
+        </p>
+      </div>
+    </div>
+
+    <!-- 5. Presentation Mode: Full Slide Deck -->
+    <div id="presentation-view" style="display: none;" class="presentation-container">
+      <div class="presentation-toolbar">
+        <div class="presentation-toolbar-left">
+          <span id="slide-section-label">Introduction</span>
+          <span id="slide-counter">Slide 1 / 19</span>
+        </div>
+        <div class="presentation-toolbar-right">
+          <button class="btn-secondary" id="btn-print-pdf">⬇ Download as PDF</button>
+          <button class="btn-icon" id="slide-prev">◀ Prev</button>
+          <button class="btn-icon" id="slide-next">Next ▶</button>
+        </div>
+      </div>
+
+      <div class="slide-viewport">
+        <div class="slide-stage" id="slide-stage">
+
+          <!-- ============ INTRODUCTION (3 slides) ============ -->
+          <section class="slide" data-section="Introduction">
+            <div class="slide-eyebrow" style="color: var(--accent-lymph);">Introduction &middot; The Lymphatic System</div>
+            <h2 class="slide-title">Why the Body Needs a Second Circulation</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <p class="slide-lead">Blood capillaries leak by design &mdash; roughly 20 liters of plasma a day move out into tissue, and only ~17 liters are pulled straight back in by the venous side. The lymphatic system exists to handle the other ~3 liters, plus everything too large to re-enter a vein unassisted.</p>
+                <ul class="slide-bullets">
+                  <li><strong>Fluid balance</strong> &mdash; blind-ended capillaries drain interstitial fluid; failure causes lymphedema.</li>
+                  <li><strong>Protein &amp; macromolecule return</strong> &mdash; leaked plasma proteins can only re-enter circulation via lymph.</li>
+                  <li><strong>Fat absorption</strong> &mdash; gut lacteals carry dietary fat to the thoracic duct, bypassing the liver.</li>
+                  <li><strong>Immune surveillance</strong> &mdash; lymph nodes are checkpoints, not just filters.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/intro/fig7_lymph_node_diagram.jpg" alt="Lymph node diagram" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>A Textbook of Histology &mdash; Maximow &amp; Bloom, 1957</span><span>BMEN 615</span></div>
+          </section>
+
+          <section class="slide" data-section="Introduction">
+            <div class="slide-eyebrow" style="color: var(--accent-gold);">Introduction &middot; Bridging Old and New</div>
+            <h2 class="slide-title">Each Chip Paper Isolates One Piece of the Circuit</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <p class="slide-lead">None of the three lab-on-a-chip papers rebuild the whole circuit. Each isolates a single piece &mdash; the leak, the pump, or the growth of the network itself &mdash; and asks whether that piece can be reproduced, measured, and manipulated outside the body.</p>
+                <ul class="slide-bullets">
+                  <li><strong style="color:#6ee7b7;">2022 mimics the pump</strong> &mdash; the lymphangion itself, the vessel segment that squeezes to push lymph forward between valves.</li>
+                  <li><strong style="color:#7dd3fc;">2024 mimics network growth</strong> &mdash; a new, dead-ended capillary sprouting from an existing vessel into a gel.</li>
+                  <li><strong style="color:#ff9999;">2026 mimics the leak &amp; pickup</strong> &mdash; the moment fluid and immune cells cross from the blood side into the lymphatic side.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/intro/lymph_system_diagram.png" alt="Lymph system diagram" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>From Live Model to Chip</span><span>BMEN 615</span></div>
+          </section>
+
+          <section class="slide" data-section="Introduction">
+            <div class="slide-eyebrow" style="color: var(--tamu-maroon-light);">Introduction &middot; The 1957 Blind Spot</div>
+            <h2 class="slide-title">What a 1957 Microscope Could See &mdash; and Couldn't Yet Explain</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <div class="slide-subhead" style="color:#f87171;">What the 1957 Text Said</div>
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li>A lymphocyte is just "a lymphocyte" &mdash; no way to tell one apart from another under the microscope.</li>
+                  <li>The thymus's function is "largely unknown"; some assumed it was a vestigial "graveyard" for dying cells.</li>
+                  <li>The <em>reticuloendothelial system</em>: reticular and sinus-lining cells were believed to transform directly into phagocytic macrophages.</li>
+                </ul>
+              </div>
+              <div class="slide-col">
+                <div class="slide-subhead" style="color:#34d399;">What We Know Now</div>
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li>Lymphocytes split into distinct T-cell and B-cell lineages &mdash; identical under a light microscope, completely different jobs.</li>
+                  <li>Jacques Miller's 1961 thymectomy experiments showed the thymus is where T-cells mature &mdash; a training school, not a graveyard.</li>
+                  <li>Macrophages are a separate, monocyte-derived lineage from the structural cells of the node &mdash; the "mononuclear phagocyte system" replaced the RES concept.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>Anatomy was solved decades before physiology &amp; immunology caught up</span><span>BMEN 615</span></div>
+          </section>
+
+          <!-- ============ PAPER 4: 1937 WHOLE-ORGAN (2 slides) ============ -->
+          <section class="slide" data-section="1937 &middot; Whole-Organ">
+            <div class="slide-eyebrow" style="color: var(--accent-gold);">Paper 4 &middot; J Exp Med 1937 &middot; Carrel</div>
+            <h2 class="slide-title">The Lindbergh Perfusion Pump</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Sole author Alexis Carrel; the apparatus was built by Charles Lindbergh, cited as a reference &mdash; not a co-author of this paper.</li>
+                  <li>An all-glass pulsatile pump driven by cycling gas pressure &mdash; no mechanical parts ever touch the perfusion fluid.</li>
+                  <li>Whole thyroid glands from cats, rabbits, and fowl kept alive 3&ndash;21 days; 6 days used for most main histology figures.</li>
+                  <li><strong>Discovery:</strong> perfusion with serum alone preserves normal gland histology; adding Witte's peptone &mdash; not perfusion itself &mdash; drives epithelial hyperplasia.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_4/perfusion_pump2.jpg" alt="Lindbergh perfusion pump" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>The Culture of Whole Organs I: Thyroid Gland</span><span>Carrel, 1937</span></div>
+          </section>
+
+          <section class="slide" data-section="1937 &middot; Whole-Organ">
+            <div class="slide-eyebrow" style="color: var(--accent-gold);">Paper 4 &middot; Why It Matters &amp; Its Limits</div>
+            <h2 class="slide-title">First Organ Kept Alive Outside the Body</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>First proof a whole mammalian organ's physiology &mdash; not just isolated cells &mdash; could be sustained outside the body.</li>
+                  <li>A direct conceptual ancestor of today's organ-preservation and ex vivo perfusion technology used to store donor organs for transplant.</li>
+                  <li><strong>Stopping rule:</strong> fluid pH fell from ~7.5 toward ~7.0&ndash;7.1 over about a week; the experiment was halted once pH dropped below 7.</li>
+                  <li><strong>Limits:</strong> sealed glass chamber &mdash; no way to see inside while running; animal tissue only; minor vessel bleeding caused edema the authors state had "no ill effect on the gland."</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_4/plate18_hyperplasia_follicles.png" alt="Hyperplasia under peptone" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>3&ndash;21 Days (pH-Limited)</span><span>Carrel, 1937</span></div>
+          </section>
+
+          <!-- ============ PAPER 2: 2022 LYMPHANGION (4 slides) ============ -->
+          <section class="slide" data-section="2022 &middot; Lymphangion">
+            <div class="slide-eyebrow" style="color: var(--accent-lymph);">Paper 2 &middot; Lab Chip 2022 &middot; Selahi et al.</div>
+            <h2 class="slide-title">The Lymphangion-Chip</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Built via <strong>Gravitational Lumen Patterning (GLP)</strong>: turning the chip vertical while the gel sets produces a round, evenly-walled channel.</li>
+                  <li>Co-culture: human lymphatic-vessel lining cells (LECs) inside, <strong>rat</strong> mesenteric muscle cells (LMCs) wrapped outside &mdash; a cross-species limitation the authors state directly.</li>
+                  <li>Tunable geometry: lumen diameter 400&ndash;800 &micro;m via pressure; higher collagen concentration trims width by ~30% more.</li>
+                  <li>Final co-culture device: ~750 &micro;m lumen, ~150 &micro;m muscle layer thickness.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_2/fig2_glp_lumen_technique.jpeg" alt="GLP fabrication technique" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>Lymphangion-Chip: Co-Culture &amp; Bidirectional Signaling</span><span>Selahi et al., 2022</span></div>
+          </section>
+
+          <section class="slide" data-section="2022 &middot; Lymphangion">
+            <div class="slide-eyebrow" style="color: var(--accent-lymph);">Paper 2 &middot; Key Finding 1</div>
+            <h2 class="slide-title">Cells Reorganize Under Shear &mdash; Together, Not Alone</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li><strong>Monoculture LMC</strong> stays mostly axial: 31.4&deg; (no flow) &rarr; 37.2&deg; (low shear) &rarr; 42.9&deg; (normal shear).</li>
+                  <li><strong>Co-culture LMC</strong> shifts markedly more circumferential: 53.1&deg; &rarr; 58.2&deg; &rarr; 61.1&deg;.</li>
+                  <li><strong>Co-culture LEC</strong> shifts more axial as shear increases: 39.6&deg; &rarr; 35.0&deg; &rarr; 30.0&deg;.</li>
+                  <li>Never reaches a literal 0&deg;/90&deg; &mdash; a real, measured shift, not a binary switch.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_2/fig6_cell_alignment_shear.jpeg" alt="Cell alignment under shear" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>Co-culture + shear drives physiological cell alignment</span><span>Selahi et al., 2022</span></div>
+          </section>
+
+          <section class="slide" data-section="2022 &middot; Lymphangion">
+            <div class="slide-eyebrow" style="color: #34d399;">Paper 2 &middot; Novel Discovery &middot; Why It Matters</div>
+            <h2 class="slide-title">Muscle Cells Protect the Endothelial Barrier</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>TNF-&alpha; alone (LECs only): barrier permeability rises sharply.</li>
+                  <li>TNF-&alpha; + LMC co-culture: barrier function stays "relatively conserved" (Fig. 7D) &mdash; first direct evidence of EC&ndash;muscle crosstalk protecting the lymphatic barrier.</li>
+                  <li>No prior in vitro model had ever paired these two lymphatic cell types.</li>
+                  <li>Opens a new therapeutic angle: LMC health, not just LEC health, as a lymphedema target.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_2/fig7_barrier_function_fitc_diffusion.jpeg" alt="Barrier function FITC diffusion test" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>First demonstration of LEC&ndash;LMC bidirectional signaling</span><span>Selahi et al., 2022</span></div>
+          </section>
+
+          <section class="slide" data-section="2022 &middot; Lymphangion">
+            <div class="slide-eyebrow" style="color: #fbbf24;">Paper 2 &middot; Limitations &amp; How Long It Runs</div>
+            <h2 class="slide-title">What's Left Out, and Where It Stops</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Tracked up to 96 hours (5 days); no post-Day-5 data or failure mode reported.</li>
+                  <li>A single straight vessel segment &mdash; no valves, bounded by stiff PDMS plastic.</li>
+                  <li>No pericytes included (the authors' own stated limitation).</li>
+                  <li>Cross-species pairing (rat muscle + human lining) limits direct translation to human biology.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>Up to 96 hr (5 Days) Tracked</span><span>Selahi et al., 2022</span></div>
+          </section>
+
+          <!-- ============ PAPER 3: 2024 L-CHIP (4 slides) ============ -->
+          <section class="slide" data-section="2024 &middot; L-Chip Sprouting">
+            <div class="slide-eyebrow" style="color: #38bdf8;">Paper 3 &middot; Adv Biol 2024 &middot; Tronolone et al.</div>
+            <h2 class="slide-title">Lymphangiogenesis-on-Chip (L-Chip)</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Three-channel design: a 1.5 mm fibrin gel chamber between a 200 &micro;m parent lymphatic vessel and a growth-factor-gradient (GFG) channel.</li>
+                  <li>Interstitial fluid flow (IF), driven by a hydrostatic pressure head, moves from the GFG side toward the vessel side.</li>
+                  <li>Sprouting requires three factors <strong>together</strong>: pre-conditioned cells (pLF) + GFG + IF &mdash; removing any one sharply cuts sprouting.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_3/fig2_conditioning_gradients_flow.jpeg" alt="L-Chip conditioning and gradients" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>Engineering Lymphangiogenesis-on-Chip</span><span>Tronolone et al., 2024</span></div>
+          </section>
+
+          <section class="slide" data-section="2024 &middot; L-Chip Sprouting">
+            <div class="slide-eyebrow" style="color: #38bdf8;">Paper 3 &middot; Key Finding</div>
+            <h2 class="slide-title">Four Days of Sprouting, Tracked Day by Day</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Day 1&ndash;4: sprouts progressively lengthen and branch past the retaining micropillars.</li>
+                  <li>Day 4 endpoint: sprouts approach ~1 mm &mdash; over 3&times; the parent vessel diameter, longer than prior published systems.</li>
+                  <li>Fully-conditioned sprouts reach ~0.85 mm vs. ~0.22 mm unconditioned by Day 4.</li>
+                  <li>Sprouts mature into tubular structures, with stalk cells connecting back to the parent vessel.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_3/day4_real.png" alt="Day 4 sprouting" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>Day-4 sprout length is the paper's only reported endpoint value</span><span>Tronolone et al., 2024</span></div>
+          </section>
+
+          <section class="slide" data-section="2024 &middot; L-Chip Sprouting">
+            <div class="slide-eyebrow" style="color: #34d399;">Paper 3 &middot; Novel Discovery &middot; Why It Matters</div>
+            <h2 class="slide-title">ESM-1: A Lymphatic-Specific Growth Driver</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Endocan (ESM-1) <strong>alone</strong> &mdash; without the rest of the growth-factor cocktail &mdash; is enough to strongly drive new lymphatic sprouting.</li>
+                  <li>The effect is lymphatic-specific: the same factor does not drive sprouting the same way in a matched blood-vessel (angiogenesis) chip.</li>
+                  <li>Gives researchers a concrete, selective molecular target for promoting or blocking lymphatic growth specifically.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_3/fig5_endocan_esm1_determinant.jpeg" alt="ESM-1 endocan determinant" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>ESM-1 was previously under-explored for lymphangiogenesis</span><span>Tronolone et al., 2024</span></div>
+          </section>
+
+          <section class="slide" data-section="2024 &middot; L-Chip Sprouting">
+            <div class="slide-eyebrow" style="color: #fbbf24;">Paper 3 &middot; Limitations &amp; How Long It Runs</div>
+            <h2 class="slide-title">What's Left Out, and Where It Stops</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Fixed 96-hour (4-day) endpoint in every experiment; nothing reported beyond Day 4.</li>
+                  <li>Sprouts are dead-ended &mdash; no fluid actually flows through the newly grown branches.</li>
+                  <li>Missing supporting cell types: muscle cells, fibroblasts, pericytes, macrophages (the authors' own stated limitation).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>Fixed 96 hr (4-Day) Endpoint</span><span>Tronolone et al., 2024</span></div>
+          </section>
+
+          <!-- ============ PAPER 1: 2026 BLOOD-LYMPH (4 slides) ============ -->
+          <section class="slide" data-section="2026 &middot; Blood-Lymph">
+            <div class="slide-eyebrow" style="color: var(--accent-blood);">Paper 1 &middot; Lab Chip 2026 &middot; Gray-Scherr et al.</div>
+            <h2 class="slide-title">Two Vessel Networks, One Shared Gel</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Tape-laminated chip, cast with needles: a blood-endothelial network and a lymphatic network self-assemble in one shared fibrin gel.</li>
+                  <li>Separated only by a thin, acellular fibrin interface &mdash; a continuous matrix, not a membrane. The networks never anastomose, but stay close enough to exchange molecules.</li>
+                  <li>Each network is independently perfusable via its own media reservoirs.</li>
+                  <li>Both networks mature over 5 days of daily media changes.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_1/fig1_design_and_assembly.jpeg" alt="Chip design and assembly" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>3D Microfluidic Model of Blood &amp; Lymphatic Exchange</span><span>Gray-Scherr et al., 2026</span></div>
+          </section>
+
+          <section class="slide" data-section="2026 &middot; Blood-Lymph">
+            <div class="slide-eyebrow" style="color: var(--accent-blood);">Paper 1 &middot; Key Finding 1</div>
+            <h2 class="slide-title">The Barrier Filters by Size</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>10 kDa and 70 kDa dextran tracers cross the gel into the lymphatic network readily.</li>
+                  <li>2000 kDa dextran transport is <strong>sharply reduced</strong>, not fully blocked &mdash; the gel is size-selective, not an absolute wall.</li>
+                  <li>Both networks remain independently perfusable without compromising this cross-network exchange &mdash; a design feature, not just an outcome.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_1/fig5_solute_transport_size.jpeg" alt="Solute transport by size" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>Size-selective molecular exchange through a continuous gel</span><span>Gray-Scherr et al., 2026</span></div>
+          </section>
+
+          <section class="slide" data-section="2026 &middot; Blood-Lymph">
+            <div class="slide-eyebrow" style="color: #34d399;">Paper 1 &middot; Novel Discovery &middot; Why It Matters</div>
+            <h2 class="slide-title">Inflammation Drives Immune-Cell Trafficking</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>TNF-&alpha; pretreatment increases resting T-cell crossing into the lymphatic network <strong>3.31-fold</strong> over control.</li>
+                  <li>Already-activated T-cells cross <strong>5.89-fold</strong> over their own untreated baseline under TNF-&alpha;.</li>
+                  <li>First chip to watch, live, how inflammation drives immune cells from a blood network into an independent lymphatic network.</li>
+                  <li>Opens direct testing of anti-inflammatory drugs and tumor immune-evasion mechanisms on living human tissue.</li>
+                </ul>
+              </div>
+              <div class="slide-col slide-col-media">
+                <img src="assets/paper_1/fig6_tcell_trafficking.png" alt="T-cell trafficking" class="slide-img">
+              </div>
+            </div>
+            <div class="slide-footer"><span>First dual-network exchange chip</span><span>Gray-Scherr et al., 2026</span></div>
+          </section>
+
+          <section class="slide" data-section="2026 &middot; Blood-Lymph">
+            <div class="slide-eyebrow" style="color: #fbbf24;">Paper 1 &middot; Limitations &amp; How Long It Runs</div>
+            <h2 class="slide-title">What's Left Out, and Where It Stops</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets">
+                  <li>Day 5 is the standard testing point; assays run 3&ndash;4 hours each; nothing reported beyond Day 5.</li>
+                  <li>Built by hand, needle by needle, sealed with grease &mdash; no two chips are exactly identical.</li>
+                  <li>No pericytes included; flow driven by gravity and a rocker, not a recirculating pump.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>Day 5 Standard Timepoint</span><span>Gray-Scherr et al., 2026</span></div>
+          </section>
+
+          <!-- ============ EVALUATION & FRONTIER (2 slides) ============ -->
+          <section class="slide" data-section="Evaluation &amp; Frontier">
+            <div class="slide-eyebrow" style="color: #ff9999;">Evaluation &amp; Frontier</div>
+            <h2 class="slide-title">90 Years, Four Systems</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li><strong>1937</strong> &mdash; whole-organ perfusion, no cell-level view.</li>
+                  <li><strong>2022</strong> &mdash; a single lymph-vessel segment, two cell types co-cultured.</li>
+                  <li><strong>2024</strong> &mdash; guided growth of a new capillary sprout.</li>
+                  <li><strong>2026</strong> &mdash; two independent vessel networks exchanging fluid and immune cells.</li>
+                </ul>
+              </div>
+              <div class="slide-col">
+                <div class="slide-subhead" style="color:#34d399;">Gained</div>
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li>Human cells instead of animal tissue</li>
+                  <li>Live imaging at the cell level</li>
+                  <li>One variable tested at a time</li>
+                </ul>
+                <div class="slide-subhead" style="color:#f87171; margin-top:0.75rem;">Sacrificed</div>
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li>Testing windows: 21 days &rarr; 4&ndash;5 days</li>
+                  <li>Pericytes and other supporting cells</li>
+                  <li>Whole-body, organ-to-organ connections</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>None of the modern chips has run longer than about a week</span><span>Evaluation &amp; Frontier</span></div>
+          </section>
+
+          <section class="slide" data-section="New Questions">
+            <div class="slide-eyebrow" style="color: #c084fc;">New Questions &middot; A Reproductive &amp; Stress-Physiology Lens</div>
+            <h2 class="slide-title">Old Experiments, New Instruments: Leaky Gut in Stressed Animals</h2>
+            <div class="slide-body">
+              <div class="slide-col">
+                <p class="slide-lead" style="font-size:0.85rem;">Viewed through stress and reproductive physiology (e.g., Thomas H. Welsh, Jr., Regents Professor, Physiology of Reproduction, Texas A&amp;M AgriLife): these four systems map onto a known pathway &mdash; stress &rarr; leaky gut &rarr; endotoxin reaches blood/lymph &rarr; systemic inflammation &rarr; reduced reproductive performance.</p>
+                <ul class="slide-bullets slide-bullets-compact">
+                  <li><strong>Paper 1, rebuilt with gut epithelium:</strong> watch endotoxin-sized tracers cross a stressed gut barrier into lymph live, instead of inferring it from blood assays after the fact.</li>
+                  <li><strong>Paper 2's barrier-rescue assay, re-run with cortisol/LPS</strong> instead of TNF-&alpha;, under chronic rather than single-pulse exposure.</li>
+                </ul>
+              </div>
+              <div class="slide-col">
+                <ul class="slide-bullets slide-bullets-compact" style="margin-top: 1.9rem;">
+                  <li><strong>Paper 3 raises the question:</strong> does chronic stress remodel gut lymphatic drainage capacity itself, not just leak through it?</li>
+                  <li><strong>Paper 4's one-organ, one-factor logic, updated:</strong> perfuse an isolated gut-epithelium-chip with a single defined stressor for a causal answer whole-animal studies can't cleanly isolate.</li>
+                  <li><strong>Old data, new ruler:</strong> retrofit the 10/70/2000 kDa tracer panel and fold-change trafficking analysis onto archived heat-stress trial samples as a sharper severity scale.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer"><span>What can scientists now ask &mdash; or re-ask &mdash; with this technology?</span><span>New Questions</span></div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="slide-progress-track"><div class="slide-progress-fill" id="slide-progress-fill"></div></div>
+    </div>
+  </main>
+
+  <!-- Deep Zoom Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-header">
+      <div>
+        <div class="lightbox-title" id="lightbox-title">Figure Title</div>
+        <div id="lightbox-desc" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Description</div>
+      </div>
+      <button class="btn-secondary" id="lightbox-close">✕ Close</button>
+    </div>
+    <div class="lightbox-body">
+      <div class="lightbox-img-wrapper" id="lightbox-wrapper">
+        <img id="lightbox-img" src="" alt="Zoomable Figure">
+      </div>
+      <div class="lightbox-controls">
+        <button class="btn-icon" id="lightbox-zoom-in">+ Zoom In</button>
+        <button class="btn-icon" id="lightbox-zoom-out">- Zoom Out</button>
+        <button class="btn-icon" id="lightbox-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glossary Slide-out Drawer -->
+  <div class="glossary-drawer" id="glossary-drawer">
+    <div class="drawer-header">
+      <h2 style="font-size: 1.1rem; font-weight: 700;">Key Terms Primer</h2>
+      <button class="btn-secondary" id="drawer-close" style="padding: 0.2rem 0.5rem;">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input type="text" class="search-input" id="glossary-search" placeholder="Filter terms or concepts...">
+    </div>
+    <div class="drawer-list" id="drawer-list">
+      <!-- Populated via JSON -->
+    </div>
+  </div>
+
+  <!-- Presenter Beacon: shows only if an instructor is actively broadcasting
+       a view; students can jump to it or ignore it and keep browsing freely. -->
+  <div class="presenter-beacon" id="presenter-beacon" style="display: none;">
+    <span class="presenter-beacon-dot"></span>
+    <span id="presenter-beacon-text">Presenter is viewing...</span>
+    <button class="btn-icon" id="presenter-beacon-jump">Jump there</button>
+    <button class="btn-icon" id="presenter-beacon-dismiss">✕</button>
+  </div>
+
+  <!-- Forced-Jump Toast: appears briefly when the presenter clicks
+       "Push to Everyone," then this browser auto-navigates. -->
+  <div class="jump-toast" id="jump-toast" style="display: none;">
+    <span id="jump-toast-text">Presenter is moving you to...</span>
+  </div>
+
+  <script src="js/app.js?v=11"></script>
+</body>
+</html>
