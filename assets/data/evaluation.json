@@ -1,0 +1,518 @@
+{
+  "overallEvaluation": {
+    "title": "How the Four Studies Compare",
+    "subtitle": "These four studies span 90 years, from keeping a whole organ alive outside the body (1937) to a lab-on-a-chip device with two separate, communicating blood and lymphatic vessel networks (2026).",
+    "executiveSummary": "These four studies span 90 years and show a clear shift in approach. In 1937, Alexis Carrel used the pulsatile glass pump built by Charles Lindbergh to keep whole organs (cat and bird thyroids) alive outside the body for days to weeks, but had no way to see or control what was happening at the level of individual cells. Over the following decades, research moved to smaller scales: first reconstructing a single lymphatic vessel segment under controlled fluid shear (Selahi et al., 2022), then studying how new lymphatic capillaries grow in response to chemical and flow cues (Tronolone et al., 2024), and most recently building two separate, independently-fed blood and lymphatic vessel networks that exchange fluid and immune cells with each other (Gray-Scherr et al., 2026). Modern microfluidic devices give researchers far more control and much better imaging than a whole organ ever could, and use human cells instead of animal tissue — but none of them has been shown to run for more than about a week, and none includes the full mix of supporting cell types and organ-to-organ interactions a real body has. Closing that gap is the open problem this research still needs to address.",
+    "evolutionaryArc": [
+      {
+        "era": "1937: Whole-Organ Perfusion",
+        "milestone": "The Lindbergh Pulsatile Glass Pump",
+        "innovation": "A sterile glass apparatus that connects to an organ's artery and pushes fluid through it in pulses, using cycling gas pressure instead of a mechanical pump.",
+        "progressUnlocked": "First demonstration that a mammalian organ could stay alive, metabolically active, and even grow new cells, entirely outside the body.",
+        "inherentLimitation": "The sealed glass chamber meant there was no way to see what was happening at the cell level while the experiment ran; only animal tissue (cat and bird) was used; and small side-vessels were left to bleed into the surrounding tissue, which the paper says caused swelling but — by the authors' own account — did not harm the gland."
+      },
+      {
+        "era": "2022: A Single Lymph Vessel Segment",
+        "milestone": "Growing Two Cell Types Together in One Vessel (Selahi et al.)",
+        "innovation": "A technique that uses gravity to shape a round, evenly-walled channel (gravitational lumen patterning), combined with growing two human cell types together: an inner vessel lining and an outer muscle layer.",
+        "progressUnlocked": "Found that growing the muscle cells together with the vessel lining, combined with fluid flow, shifts the muscle cells' orientation — from mostly running lengthwise along the vessel (mean ~31°) toward wrapping more around its circumference (mean ~53–61°). This is a real, measured shift, but the cells never reach a literal 90° (fully circumferential).",
+        "inherentLimitation": "Just one straight channel, bounded by a stiff plastic (PDMS) wall; no valves inside the vessel, and the muscle layer doesn't actively contract to pump fluid on its own."
+      },
+      {
+        "era": "2024: Guiding New Capillary Growth",
+        "milestone": "Lymphangiogenesis-on-Chip (Tronolone et al.)",
+        "innovation": "Tiny engineered pillars that hold a gel in place using surface tension, letting chemical signals and fluid flow be tested separately or together.",
+        "progressUnlocked": "Tracked new vessel growth day-by-day over 4 days, found that new sprouts grow fastest against the direction of fluid flow (not with it), and identified a protein (ESM-1) that can trigger this growth on its own.",
+        "inherentLimitation": "The new sprouts are dead-ended — no fluid actually flows through them — and every experiment in the paper stops at Day 4, so nothing is reported about what happens after that."
+      },
+      {
+        "era": "2026: Two Vessel Networks Exchanging Fluid",
+        "milestone": "Blood-Lymph Exchange Chip (Gray-Scherr et al.)",
+        "innovation": "A gel chamber molded using two needles, with a thin cell-free gel layer separating a self-forming network of blood vessels from a self-forming network of lymphatic vessels.",
+        "progressUnlocked": "Showed that the gel barrier filters molecules by size (letting smaller ones through at 10 and 70 kilodaltons, but blocking a much larger one at 2000 kilodaltons), and measured in real time how an inflammatory signal (TNF-alpha) increases how many T-cells cross from the blood network into the lymphatic network.",
+        "inherentLimitation": "The device is built by hand, needle by needle, and sealed with grease; fluid drains in one direction under gravity rather than recirculating; and Day 5 is as far as the paper's experiments go, with nothing reported about how long the networks would keep working beyond that."
+      }
+    ],
+    "macroVsMicroTradeoffs": {
+      "gained": [
+        "Human cells instead of animal tissue: the move from whole cat and chicken organs to cells taken directly from human donors (vessel-lining, connective-tissue, and immune cells).",
+        "The ability to watch it happen: modern chips can be imaged live under a microscope at very high resolution, tracking individual cells moving and dye molecules flowing in real time — something a sealed glass apparatus never allowed.",
+        "Testing one variable at a time: fluid shear, pressure, gel stiffness, and chemical signals can each be changed independently, without the rest of a whole animal's physiology changing along with it and confusing the results.",
+        "Lower material cost per experiment: these chips need only microliters of reagents, compared to the hundreds of milliliters of donor animal serum the 1937 apparatus required."
+      ],
+      "sacrificed": [
+        "Long testing windows: the 1937 whole-organ setup was reported alive for up to 21 days. Each of the three modern chip papers stops at a fixed point (4 to 5 days) and doesn't report what happens after — not necessarily because something breaks down, simply because none of them tested further.",
+        "Supporting vessel-wall cells: none of the three modern chip papers include pericytes — cells that normally wrap around small vessels and help stabilize them — in their cell lists.",
+        "Connections to the rest of the body: modern chips study one or two tissue types in isolation, leaving out the hormonal, immune, and filtering interactions that normally happen between organs in a whole body.",
+        "Soft, flexible surroundings: chips are bounded by rigid glass or stiff plastic (PDMS), instead of the soft, pulsing living tissue that surrounds real vessels in the body."
+      ]
+    },
+    "scorecard": [
+      {
+        "dimension": "Scale & Structure",
+        "paper1": "Two vessel networks side by side (~3 mm chamber, capillaries 20–40 µm wide)",
+        "paper2": "One tube-shaped vessel (750 µm-wide channel, 900 µm across including the wall)",
+        "paper3": "New capillaries growing into a gel (1.5 mm chamber, sprouts up to ~1 mm long)",
+        "paper4": "A whole organ (intact thyroid gland, ~5–10 cm)"
+      },
+      {
+        "dimension": "Cell Types & Source",
+        "paper1": "Human donor cells: blood-vessel lining cells (glow-tagged for tracking), lymphatic-vessel lining cells, connective-tissue cells, and T-cells from blood",
+        "paper2": "Human lymphatic-vessel lining cells for the inner tube, but rat muscle cells for the outer sheath — a cross-species mix the authors note as a limitation, since human lymphatic muscle cells aren't commercially available",
+        "paper3": "Human lymphatic-vessel lining cells, pre-treated with a 5-factor growth-signal cocktail, compared against ordinary human blood-vessel lining cells",
+        "paper4": "Whole thyroid glands from cats and birds, still attached to their feeding blood vessel"
+      },
+      {
+        "dimension": "What Drives the Fluid Flow",
+        "paper1": "A small pressure difference from gravity alone (9.6 Pa) pushes fluid through the gel",
+        "paper2": "A pump sets steady fluid friction (shear) on the vessel wall at three levels — none, low, and roughly what's measured in real lymph vessels",
+        "paper3": "Slow fluid seepage through the gel (1–5 µm/s) combined with a chemical gradient",
+        "paper4": "Gas pressure pulses push fluid through the artery in waves, visibly expanding and relaxing the vessel wall with each pulse"
+      },
+      {
+        "dimension": "How the Results Were Measured",
+        "paper1": "Live microscope imaging while the experiment ran, a dye-drainage test, plus fixed tissue stained afterward",
+        "paper2": "A live dye-leakage test, plus fixed tissue stained for specific muscle and lymphatic marker proteins",
+        "paper3": "Fixed tissue imaged in 3D under a microscope, with software automatically tracing and measuring the new vessel sprouts",
+        "paper4": "Tissue examined only after the animal was euthanized — thin stained slices under a microscope — plus a test of whether small tissue pieces could still grow in a flask afterward"
+      },
+      {
+        "dimension": "How Long It Ran",
+        "paper1": "Day 5 is the paper's standard timepoint; assays run 3–4 hrs. Nothing beyond Day 5 is reported.",
+        "paper2": "Tracked up to 96 hrs (5 days); no failure mechanism reported beyond that",
+        "paper3": "Fixed 96 hr (4-day) endpoint in every experiment; no outcome beyond Day 4 reported",
+        "paper4": "3–21 days reported (6 days used for most main figures); the experiment was stopped once the fluid's pH dropped below 7"
+      },
+      {
+        "dimension": "Main Trade-off / Limitation",
+        "paper1": "Built by hand with needles and sealed with grease; no pericytes (vessel-stabilizing cells) included",
+        "paper2": "Stiff plastic walls; just one straight tube; no valves inside the vessel",
+        "paper3": "The new sprouts are dead-ended — no fluid actually flows through the vessels that form",
+        "paper4": "Sealed glass chamber — no way to see inside while running, only after the fact; some minor bleeding caused swelling, but the authors state it didn't harm the gland"
+      },
+      {
+        "dimension": "What It Could Be Used For",
+        "paper1": "Studying how immune cells move in cancer, testing anti-inflammatory drugs, and modeling lymph drainage",
+        "paper2": "Developing treatments for lymphedema (fluid buildup from poor drainage), restoring normal muscle tone in vessels, and testing how well drugs pass through vessel walls",
+        "paper3": "Finding drugs that encourage or block new lymphatic-vessel growth, understanding how tumors spread, and studying wound healing",
+        "paper4": "A lab method for studying normal and diseased thyroid function (the paper's own stated goal); historically, an early ancestor of today's organ-preservation technology"
+      }
+    ]
+  },
+  "frontierPredictions": [
+    {
+      "id": "pred1",
+      "title": "1. Measuring Chips Without Ending the Experiment",
+      "summary": "Right now, getting a detailed readout usually means fixing the chip in formaldehyde, which ends the experiment. Future chips could have sensors built into the walls that measure continuously while the experiment keeps running.",
+      "detail": "Instead of ending the experiment at Day 4 or 5 to take microscope images, future chips could have small sensors built directly into the channel walls — electrical sensors that measure how tightly sealed the vessel lining is, and optical or chemical sensors that track waste buildup and signaling molecules — all while the cells are still alive and the experiment is still running."
+    },
+    {
+      "id": "pred2",
+      "title": "2. Building Chips From a Specific Patient's Own Cells",
+      "summary": "Instead of using cells pooled from anonymous donors, chips could be built from a specific patient's own cells, reprogrammed in the lab into the cell types needed.",
+      "detail": "For patients with vessel malformations, lymphedema caused by another condition, or a spreading tumor, a chip built from their own cells could let doctors test which chemotherapy or immune-based treatment is likely to work best for them before actually giving it."
+    },
+    {
+      "id": "pred3",
+      "title": "3. Connecting Multiple Chips Into One System",
+      "summary": "Linking several organ-on-a-chip devices together with small pumps, so fluid can flow between them the way blood connects organs in the body.",
+      "detail": "By connecting a blood-lymph exchange chip to a living tumor or liver chip upstream, and a lymph-node chip downstream, researchers could follow the whole path a cancer cell or immune signal takes through the body: entering a vessel, draining through tissue, arriving at a lymph node, and triggering an immune response there."
+    },
+    {
+      "id": "pred4",
+      "title": "4. Building Chips by Machine Instead of by Hand",
+      "summary": "Replacing hand-built devices (cast with needles, sealed with grease) with robotic 3D printing, built to the standard lab-plate format already used in industry.",
+      "detail": "Building each chip by hand is a major reason these devices haven't been adopted more widely in drug development, since no two hand-built chips are exactly identical. A robotic printer could build hundreds of blood-lymph devices at once, with far more consistent, precise dimensions than a person can achieve by hand."
+    },
+    {
+      "id": "pred5",
+      "title": "5. Making These Chips Last Longer Than a Few Days",
+      "summary": "An open question none of these papers answer: could a better gel, added support cells, and a recirculating flow path let these chips keep working for weeks or months instead of days?",
+      "detail": "Each modern chip paper stops at a fixed point — 4 to 5 days — not because researchers measured a breakdown and hit a wall, but simply because that's where each study's experiments ended. Whether these devices could keep working longer, and what would actually cause them to fail if pushed further, is still an open question. Possible culprits — the gel breaking down, chemical gradients running out, or fluid never actually flowing through the new dead-ended sprouts — are reasonable guesses, but none of these papers tested or confirmed them. Getting past this limit would likely need a gel that can repair itself under stress, supporting cells wrapped around the vessels to stabilize them (the way pericytes do in the body), and a way to continuously clear waste from a closed loop — aiming at weeks-to-months of continuous operation instead of days."
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1937",
+      "paper": "Carrel (1937)",
+      "badge": "J Exp Med",
+      "title": "Keeping a Whole Organ Alive Outside the Body",
+      "scale": "Whole organ (~10 cm)",
+      "milestone": "Proved that a whole mammalian organ could be kept alive and responsive outside the body using pulsing fluid pressure alone.",
+      "limitation": "Sealed glass apparatus with no way to see inside while it ran; animal tissue only; no way to observe individual cells."
+    },
+    {
+      "year": "2022",
+      "paper": "Selahi et al.",
+      "badge": "Lab Chip",
+      "title": "Growing a Lymph Vessel Segment With Two Cell Types",
+      "scale": "Microscale (900 µm)",
+      "milestone": "Grew human lymphatic-vessel lining cells and muscle cells together around one channel; found that fluid shear stress shifts the muscle cells' orientation further around the vessel's circumference (not a literal 90°, but a measured shift from ~31° to ~53–61°).",
+      "limitation": "Just one straight vessel; stiff plastic channel; no valves inside it."
+    },
+    {
+      "year": "2024",
+      "paper": "Tronolone et al.",
+      "badge": "Adv Biol",
+      "title": "Guiding New Lymphatic Vessel Growth (L-Chip)",
+      "scale": "Mesoscale (1.5 mm chamber)",
+      "milestone": "Tracked new capillary growth day-by-day over a 4-day period; found that fluid flow through the gel works together with a growth-factor gradient, and identified ESM-1 as a protein that drives this growth on its own.",
+      "limitation": "The new sprouts are dead-ended; no fluid actually flows through the newly grown branches."
+    },
+    {
+      "year": "2026",
+      "paper": "Gray-Scherr et al.",
+      "badge": "Lab Chip",
+      "title": "A Chip With Separate Blood and Lymph Networks",
+      "scale": "Two connected networks (~3 mm)",
+      "milestone": "Built two separately-fed human vessel networks (blood and lymphatic) sharing one gel, with filtering between them and live tracking of immune T-cells moving from one network to the other.",
+      "limitation": "Built by hand with needles; fluid drains one-way under gravity rather than recirculating; detailed imaging requires ending the experiment."
+    }
+  ],
+  "paperQuestions": {
+    "paper1": [
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "Where did the cells come from (human vs. animal, cell lines vs. primary)?",
+        "qNum": 3,
+        "a": "All human cells, taken directly from donors (not lab-grown cell lines). The cells lining the blood-vessel network are human skin blood-vessel lining cells, genetically tagged so they glow green under a microscope. The cells lining the lymphatic-vessel network are human skin lymphatic-vessel lining cells (confirmed 99% lymphatic by testing for a marker protein, podoplanin). Supporting connective-tissue cells come from human lung donors. The immune cells are T-cells (a type of white blood cell) isolated from healthy donors' blood, used either \"resting\" (straight from frozen storage) or after a week of lab treatment that activates them.",
+        "citation": "Materials & Methods, \"Cell culture\""
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What functional tissue systems are analyzed and reconstructed?",
+        "qNum": 13,
+        "a": "Two small vessel-like networks side by side: a continuous blood-vessel network that can be fed fluid on its own, and a separate, dead-ended lymphatic-vessel network next to it. Both are grown inside one shared gel chamber, separated by a thin, cell-free layer of the same gel — thin enough that molecules and cells can cross between the two networks, but thick enough that the vessels themselves never physically connect.",
+        "citation": "Fig. 1C-D; Results, \"The resulting device architecture...\""
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What is the physiological relevance of this model?",
+        "qNum": 5,
+        "a": "It recreates the space between blood and lymphatic vessels where the two work together to move fluid, molecules, and immune cells through tissue — the same process that breaks down in cancer spread, chronic inflammation, and lymphedema (fluid buildup from poor drainage). It specifically lets researchers watch T-cells flow through the blood vessels, squeeze out into the surrounding tissue, and enter the lymphatic vessels — mirroring how immune cells patrol and exit tissue in the body.",
+        "citation": "Introduction; Results, \"Reconstitution of T cell trafficking...\", Fig. 6"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What is the physical process and operation of the device?",
+        "qNum": 12,
+        "a": "The device is built by layering glass, laser-cut plastic, and tape. Thin needles (250 micrometers wide — a few human hairs' width) are threaded through guide channels to mold the shape of the vessel channels. A gel mixed with blood-vessel cells is cast around part of the needles, then a cell-free gel layer, then a gel mixed with lymphatic-vessel cells around the rest. Once the gel sets, the needles are pulled out, leaving open channels behind, and the entry points are sealed with grease. The whole device is then cultured for 5 days on a slowly rocking platform with fresh growth medium added daily, and each experiment begins by adding a set amount of fluid to the blood and lymph reservoirs (40 microliters on the blood side, 10 on the lymph side).",
+        "citation": "Materials & Methods, \"Microfluidic device design and fabrication,\" \"Cell seeding and gel casting\"; Fig. 1A-C"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What hemodynamic forces and shear gradients play a role?",
+        "qNum": 10,
+        "a": "A small pressure difference, created simply by putting more fluid on the blood side than the lymph side (40 vs. 10 microliters), drives flow through the gel — chosen to roughly match the real pressure difference between tissue and lymphatic vessels in the body. By tracking small particles in the fluid, the researchers measured the friction (shear stress) the flow exerts on the vessel walls: roughly 0.1–3 dyne/cm² in the blood network (across vessels 25–200 micrometers wide), and much lower in the lymphatic network — about 0.016 dyne/cm² on average, dropping even lower in the smallest branches.",
+        "citation": "Results, \"Quantitative drainage assay...\" and \"Flow characterization by particle tracking velocimetry\"; Fig. S8"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "Do fluid acceleration, deceleration, angle, or orientation play a role?",
+        "qNum": 14,
+        "a": "Yes, during the 5-day growth period: the devices sit on a platform that rocks up to a 30° tilt, which creates a gentle back-and-forth flow through the blood-vessel channels (reaching a peak pressure of about 27 Pa, but averaging to zero net push over each rocking cycle, since the dead-ended lymphatic side has no matching reservoir to drive flow against). During the actual measurement experiments (the drainage and T-cell tests), the rocking is turned off, so the pressure difference instead pushes steadily in one direction rather than back and forth.",
+        "citation": "Materials & Methods, \"Cell seeding and gel casting\"; Results, Flow characterization section"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "What was sacrificed to engineer this, and how does that impact relevance?",
+        "qNum": 6,
+        "a": "The paper's own discussion admits its control over fluid flow is not fully worked out: flow comes \"primarily through rocker-driven movement and static hydrostatic gradients,\" and because the channel shapes aren't simple standard geometry, the exact flow pattern and the friction it creates on vessel walls \"are not fully characterized.\" The authors say that adding computer flow simulations and a mechanical pump would be needed to map this out properly against real physiological values. Separately — something the paper doesn't itself call out as a trade-off — the list of cell types used does not include pericytes, the cells that normally wrap around small vessels and help stabilize them.",
+        "citation": "Discussion, paragraph beginning \"The tape-based fabrication workflow...\""
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How much independent control does the researcher have over variables?",
+        "qNum": 9,
+        "a": "Strong control over the parameters the researchers set directly: how much fluid goes in each reservoir, how many cells are seeded, and the exact dose of chemical signals added, such as the inflammatory protein TNF-alpha. The shape of the needle channels is fixed once the device is built, not something that varies run to run. The actual branching pattern of the vessels is not directly controlled — it emerges on its own as the cells grow together over 5 days, landing on consistent but not researcher-chosen sizes (blood vessels averaging 25.80 ± 0.52 micrometers wide, lymphatic vessels 35.17 ± 1.15 micrometers).",
+        "citation": "Results, Fig. 3C; Materials & Methods"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How long will this work for continuously, and when does the system degrade beyond designed function?",
+        "qNum": 16,
+        "a": "The paper settles on day 5 as its standard testing point, once both vessel networks have finished forming on their own. From there, individual experiments run just a few hours: 3 hours for the drainage test, 4 hours for the T-cell test. This cannot be grounded in fact in the paper: it does not say what happens to the networks after day 5, and gives no explanation for why they would eventually stop working or how long they could keep going.",
+        "citation": "Results, \"...established day 5 as the standard timepoint\"; Materials & Methods, drainage and trafficking assay sections"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "In what context was the data collected and interpreted (immunostaining and imaging)?",
+        "qNum": 4,
+        "a": "Two complementary approaches. First, at a fixed end point, the tissue was stained for several marker proteins (markers for lymphatic cells, nuclei, blood-vessel cells, and cell junctions, plus the built-in green glow tag) and imaged in 3D layers under a microscope; custom software then measured vessel width, length, surface area, and how densely packed the network was. Second, live imaging tracked the experiment as it happened: a dye-drainage test measured how much of a labeled molecule moved into the lymphatic region every 30 minutes, and time-lapse video followed individually-dyed T-cells as they moved from the blood vessels into the lymphatic ones — though the paper describes this by how the cells' shape changed (from round to elongated) rather than giving a measured speed.",
+        "citation": "Materials & Methods, \"Immunostaining and imaging,\" \"Vessel network architecture quantification,\" \"T cell trafficking assay and quantification\""
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can you predict what will happen as a disease progresses over time?",
+        "qNum": 11,
+        "a": "By treating the blood-vessel network with an inflammatory signaling protein (TNF-alpha) for 4 hours beforehand, to model sudden vessel inflammation. The paper's discussion attributes the resulting increase in T-cell movement at least partly to TNF-alpha's well-known effect of making blood- and lymphatic-vessel cells more \"sticky\" to immune cells, by increasing a docking protein (ICAM-1) on their surface. The measured effect is large: resting T-cells crossed into the lymphatic network 3.31 times more than in the untreated control, and already-activated T-cells crossed 5.89 times more than resting T-cells did.",
+        "citation": "Results, Fig. 6H-I; Discussion, ICAM-1 paragraph"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can it be used in practice, and what are the probable next steps?",
+        "qNum": 7,
+        "a": "The paper's introduction points to diseases where blood- and lymphatic-vessel communication breaks down: cancer spread, chronic inflammation, and lymphedema. For next steps, the paper's own discussion names: adding a recirculating pump or more controlled pressure source (paired with computer flow simulations) to better define and control fluid flow; testing additional growth signals, blood-vessel-blocking drugs, or other supporting cell types; and extending the T-cell experiments to more types and states of immune cells, and to chronic (not just short-term) inflammation.",
+        "citation": "Introduction; Discussion, final two paragraphs"
+      }
+    ],
+    "paper2": [
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "Where did the cells come from (human vs. animal, cell lines vs. primary)?",
+        "qNum": 3,
+        "a": "Cells from two different species. The cells lining the inner channel are human lymphatic-vessel lining cells, taken from donor skin. The muscle cells wrapped around the outside are from rat intestinal lymphatic vessels — not human. The authors flag this themselves as a limitation, since human lymphatic muscle cells aren't commercially available, which makes the cell-to-cell signaling studied here a mix of two species, not two human cell types.",
+        "citation": "Discussion, p.8: \"LMCs and LECs in this project are derived from rat mesenteric vessels and human dermal tissue, respectively. This is a limitation because human LMCs are not commercially available.\""
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What functional tissue systems are analyzed and reconstructed?",
+        "qNum": 13,
+        "a": "A single tube-shaped lymph vessel segment — specifically the portion between two one-way valves. It has an inner channel (averaging about 750 micrometers across in the dual-cell-type devices) lined by a complete layer of lymphatic-vessel cells, surrounded by a collagen gel sheath containing muscle cells (averaging about 150 micrometers thick).",
+        "citation": "Results §2.2: \"the average lumen inner diameter and muscle layer thickness are measured to be nearly 750 µm and 150 µm, respectively\"; Fig. 1B, Fig. 4A-B"
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What is the physiological relevance of this model?",
+        "qNum": 5,
+        "a": "Recreates the lymphangion, the pumping unit that helps push lymph forward. The paper shows that growing the muscle cells together with the lining cells, combined with fluid shear, shifts the muscle cells to wrap more around the vessel's circumference (compared to mostly running lengthwise when grown alone), while the lining cells shift to align more lengthwise with the direction of flow — matching how these cells are arranged in the body. The paper shows this shift happens when both cell types are grown together under flow; it does not identify what specific chemical signal between the cells causes it, so claims naming a specific messenger molecule (like nitric oxide) cannot be grounded in fact in this paper.",
+        "citation": "Results §2.3, Fig. 6A-D"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What is the physical process and operation of the device?",
+        "qNum": 12,
+        "a": "A mold is used to form a square plastic channel (900 micrometers wide and tall, 5 millimeters long). A mixture of muscle cells and collagen gel is loaded into the channel; the whole device is then turned 90° so the channel runs straight up and down, and a syringe pulls a gentle vacuum at the bottom outlet. This technique (called gravitational lumen patterning, or GLP) uses gravity — now aligned with the direction the channel runs — to keep the hollowed-out center evenly positioned as it forms, giving a round channel with an evenly thick wall all the way around. This avoids the lopsided, sagging channel that forms if the same hollowing-out process is done with the channel lying flat. Lymphatic-vessel lining cells are then added to the hollow channel and grown under flow.",
+        "citation": "Results §2.1, Fig. 2A-D; Methods §5.1"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What hemodynamic forces and shear gradients play a role?",
+        "qNum": 10,
+        "a": "Three levels of fluid friction (shear) were tested: none (static fluid), a low level (about 0.1 dyne/cm², which the authors describe as representing a lymphedema-like state with poor drainage), and a level matching real rat lymphatic vessels (about 1 dyne/cm²). When both cell types were grown together, both the lining cells' lengthwise alignment and the muscle cells' circumferential alignment became more pronounced as the shear increased from none to normal. A continuous range from 0.1 to 10 dyne/cm² was not tested and cannot be grounded in fact in this paper.",
+        "citation": "Results §2.3, Fig. 6B-D"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "Do fluid acceleration, deceleration, angle, or orientation play a role?",
+        "qNum": 14,
+        "a": "The angle of the device during building, not flow speeding up or slowing down, is what matters here. Turning the channel 90° to vertical during the GLP process lines gravity up with the direction the channel runs. This prevents the lopsided, sagging channel produced when the same process is done with the channel flat, and instead gives a channel with nearly even wall thickness all the way around.",
+        "citation": "Results §2.1, Fig. 2B-D"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "What was sacrificed to engineer this, and how does that impact relevance?",
+        "qNum": 6,
+        "a": "The device models a single straight vessel segment — the part between two valves — without the valves themselves, and without pulsing flow or the muscle layer actively squeezing on its own (the paper notes that future versions may need to add this kind of flow pattern, and that an outside stimulus might be needed to trigger the muscle to contract on its own in the lab). Another limitation the paper states directly: the muscle cells come from rats, not humans, because human lymphatic muscle cells aren't commercially available — a cross-species gap in how directly these co-culture signaling results apply to human biology. Specific claims about sacrificing \"bicuspid valves\" or \"afterload\" capacity use terms not found in this paper and cannot be grounded in fact.",
+        "citation": "Discussion, p.7-8"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How much independent control does the researcher have over variables?",
+        "qNum": 9,
+        "a": "Strong, independent control over the vessel's shape: the inner channel's width can be tuned from about 400 to 800 micrometers by changing the pressure applied during the GLP process; increasing how concentrated the collagen gel is reduces the channel width by about 30%, independent of pressure; and the outer size of the whole structure can be set by using different molds. Fluid shear is set directly by a pump's flow rate (none, ~0.1, or ~1 dyne/cm² were tested).",
+        "citation": "Results §2.1, Fig. 3A-E"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How long will this work for continuously, and when does the system degrade beyond designed function?",
+        "qNum": 16,
+        "a": "The paper's own experiments run for up to 5 days: the lymphatic-vessel lining becomes a complete layer within 60 hours, and the gap between the two cell layers and how densely the cells pack is tracked through 96 hours (day 5). The paper does not report what happens to the device after day 5, and does not name a specific reason it would eventually fail (like the gel shrinking or the plastic channel coming apart) — a stated \"60-120 hour degradation threshold\" or named failure mode cannot be grounded in fact in this paper.",
+        "citation": "Results §2.2, Fig. 5 (confluency and gap-distance time course, up to 96 hr / 5 days)"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "In what context was the data collected and interpreted (immunostaining and imaging)?",
+        "qNum": 4,
+        "a": "Fixed-endpoint microscope imaging of stained tissue, combined with live functional tests. Cell orientation was measured from images of the tissue stained for muscle- and lining-cell marker proteins, using free image-analysis software to measure each cell's angle relative to the vessel — 0° meaning lengthwise along the vessel, 90° meaning fully wrapped around it. The actual measured average angles land between these two extremes (for example, the muscle cells in co-culture averaged roughly 53-61° depending on the flow condition, not a literal 90°). How well the vessel wall blocked leakage was measured live by flowing a glowing dye of several different sizes through it and calculating how much leaked across the wall, before and after treatment.",
+        "citation": "Methods §5 (OrientationJ); Fig. 6B-D; Methods §5.7 (permeability)"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can you predict what will happen as a disease progresses over time?",
+        "qNum": 11,
+        "a": "Models two disease-relevant situations. First, reduced fluid shear (about 0.1 dyne/cm², which the authors describe as representing a lymphedema-like state with poor drainage) results in weaker cell alignment compared to normal shear. Second, the inflammatory signal TNF-alpha makes the vessel lining leakier whether or not muscle cells are present, but having the muscle cells present leads to a partial recovery of the barrier's leak-resistance after TNF-alpha exposure, compared to vessels with lining cells alone.",
+        "citation": "Results §2.3 (lymphedema-like shear); Results §2.4, Fig. 7D (TNF-alpha permeability)"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can it be used in practice, and what are the probable next steps?",
+        "qNum": 7,
+        "a": "The authors describe it as an adjustable platform for early-stage lymphatic (and blood) vessel research and drug testing, usable alongside molecular and genetic tools to study how lymphatic cells signal each other; they state directly that it \"can also be applied in blood vascular models.\" Specific future additions — like valves inside the vessel, a membrane that expands and contracts to mimic pumping, or linking several of these vessel segments in a row — are not discussed in the paper and cannot be grounded in fact.",
+        "citation": "Conclusion §4"
+      }
+    ],
+    "paper3": [
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "Where did the cells come from (human vs. animal, cell lines vs. primary)?",
+        "qNum": 3,
+        "a": "Human cells only, no animal tissue: lymphatic-vessel lining cells from donor skin, grown in the L-Chip device, compared directly against ordinary blood-vessel lining cells (from umbilical cord donors) grown in a matching \"A-Chip\" used to study blood-vessel growth instead. Before being added to the chip, cells were optionally pre-treated with a cocktail of five growth-signaling proteins known to encourage lymphatic-vessel growth, including the protein ESM-1.",
+        "citation": "Methods, \"Cells and reagents\" and \"Tissue culture\" (HDLEC/HUVEC sourcing and pLF cocktail composition)"
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What functional tissue systems are analyzed and reconstructed?",
+        "qNum": 13,
+        "a": "A starting lymphatic vessel (modeling a 200-micrometer-wide lymphatic capillary) that sends out new sprouts into an adjacent 1.5-millimeter gel chamber, growing toward a source of growth-signaling chemicals, with connecting cells linking each new sprout back to the original vessel.",
+        "citation": "Fig. 1A (device schematic, 1.5 mm chamber / 200 µm vessel dimensions); Fig. 1D-H (sprout and tube morphology)"
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What is the physiological relevance of this model?",
+        "qNum": 5,
+        "a": "Models lymphangiogenesis — the process by which new lymphatic vessels form. This matters for restoring normal fluid drainage, for how immune cells travel during inflammation and injury, and for how cancer cells spread into lymph nodes. The paper's core finding is that fluid flow through the gel and chemical growth signals work together to guide this process, rather than either one alone.",
+        "citation": "Introduction (roles of lymphangiogenesis in homeostasis, inflammation, metastasis); Results, \"L-Chips reveal that lymphangiogenesis is regulated by biochemical cues and interstitial fluid flow\""
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What is the physical process and operation of the device?",
+        "qNum": 12,
+        "a": "A mold forms a 3-channel plastic device, with the channels separated by rows of tiny pillars close enough together to hold a gel in place by surface tension (the paper doesn't state the exact pillar spacing). A gel is injected into the middle channel and left to set; vessel-lining cells are then added to the channel next to it. A chemical gradient (built from the growth-factor cocktail, or ESM-1 alone in later experiments) and/or a pressure difference driving fluid through the gel are applied, and the amount of new vessel growth is measured after a fixed 96-hour (4-day) period.",
+        "citation": "Methods, \"Microfluidic Device Fabrication\" and \"A- and L-Chip seeding, culturing, and stimulation\""
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What hemodynamic forces and shear gradients play a role?",
+        "qNum": 10,
+        "a": "Fluid seeping slowly through the gel, driven by a pressure difference, tested at a speed matching the body (1 micrometer/second) and a faster, higher-than-physiological speed (5 micrometers/second). This flow moves from the far channel toward the starting vessel, while the new sprouts grow in the opposite direction — against the flow — and faster flow increased how much the vessels sprouted and branched, compared to no flow at all. The paper does not explain what's happening at the cell level to cause this.",
+        "citation": "Results, \"L-Chips reveal that lymphangiogenesis is regulated by biochemical cues and interstitial fluid flow\"; Fig. 2C, Fig. 3"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "Do fluid acceleration, deceleration, angle, or orientation play a role?",
+        "qNum": 14,
+        "a": "This cannot be grounded in fact in the paper. It does not discuss fluid speeding up, slowing down, or channel angle; the only relevant detail is that rows of tiny pillars physically separate the three channels, with no stated spacing or shape given for them.",
+        "citation": "Not addressed in the paper"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "What was sacrificed to engineer this, and how does that impact relevance?",
+        "qNum": 6,
+        "a": "The device leaves out other supporting cell types present in real tissue — muscle cells, connective-tissue cells, pericytes, and immune clean-up cells (macrophages) — which the authors themselves note could affect how new vessels grow. The paper doesn't discuss whether or how the new sprouts might shrink back after Day 4, since no experiment runs past that point.",
+        "citation": "Conclusion (\"Some limitations exist, including the lack of other supporting cells... that are present in a tissue microenvironment\")"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How much independent control does the researcher have over variables?",
+        "qNum": 9,
+        "a": "Strong, independent control: the growth-factor pre-treatment (on or off, and at what dose and duration), the strength of the growth-factor gradient, and the strength of fluid flow through the gel can each be set separately from the others, letting the researchers test every combination.",
+        "citation": "Fig. 2A-C (independent pLF/GFG/IF comparisons); Fig. 3A-G (combined GFG x IF matrix); Fig. 4D-E (pLF dose and duration sweeps)"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How long will this work for continuously, and when does the system degrade beyond designed function?",
+        "qNum": 16,
+        "a": "Every experiment in this paper uses a fixed 96-hour (4-day) culture and measurement endpoint; sprouts reach up to ~1 mm in that time. This cannot be grounded in fact in the paper: the study does not report what happens to sprouts beyond Day 4, and makes no claim about degradation, regression, or an operational limit past that point.",
+        "citation": "Methods, \"A- and L-Chip seeding, culturing, and stimulation\" (\"Chips were cultured for 96 hr before fixing\")"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "In what context was the data collected and interpreted (immunostaining and imaging)?",
+        "qNum": 4,
+        "a": "At the end of the experiment, devices were stained for a protein found specifically on vessel-lining cells (PECAM-1, also called CD31) plus a general stain that lights up cell nuclei, then imaged in 3D layers under a microscope. The images were then run through image-analysis software that automatically measured sprout length, the number of branch junctions, and the number of branches, for statistical comparison between conditions.",
+        "citation": "Methods, \"Immunofluorescence\" and \"Image processing and data analysis\"; Fig. 2 caption (quantified metrics)"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can you predict what will happen as a disease progresses over time?",
+        "qNum": 11,
+        "a": "The paper doesn't model how a disease changes over time — every data point is from the same fixed 4-day endpoint. What it does show is that the protein ESM-1 is a specific driver of new lymphatic-vessel growth: leaving ESM-1 out of the growth-factor cocktail reduced sprouting, while ESM-1 by itself was almost as effective as the full five-protein cocktail. This effect was specific to lymphatic vessels — ESM-1 alone did not drive extra growth in the ordinary blood-vessel (A-Chip) system.",
+        "citation": "Fig. 5A-D; Conclusion (\"identified ESM-1 as a prospective specific regulator of lymphangiogenesis, which was not the case... on our A-Chips\")"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can it be used in practice, and what are the probable next steps?",
+        "qNum": 7,
+        "a": "The authors describe the L-Chip as a standardized platform for lymphatic-vessel-growth research, and a tool for finding drug targets related to either disease-driven or therapeutic vessel growth, with ESM-1 as the current focus. Stated next steps are a deeper look at exactly how ESM-1 works, and gradually adding the supporting cell types currently missing from the model (muscle cells, connective-tissue cells, pericytes, and macrophages).",
+        "citation": "Conclusion"
+      }
+    ],
+    "paper4": [
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "Where did the cells come from (human vs. animal, cell lines vs. primary)?",
+        "qNum": 3,
+        "a": "Carrel used intact, non-human organs from etherized cats and rabbits — the primary animals used — and less frequently fowls (chickens). For cats and rabbits, the gland was removed together with a segment of the carotid artery and surrounding connective tissue; for fowls, it was removed with a segment of the aorta instead, since the thyroid in birds lies directly on the great thoracic vessels.",
+        "citation": "p. 517-518: 'Cats and rabbits are generally used, less frequently, fowls... the gland is removed, together with a segment of carotid artery in cats and rabbits, and of aorta in fowls.'"
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What functional tissue systems are analyzed and reconstructed?",
+        "qNum": 13,
+        "a": "The whole intact thyroid gland — including its hormone-producing follicle cells, the jelly-like substance (colloid) those follicles store, and the small blood vessels feeding it — along with its surrounding connective-tissue capsule. The nerve running alongside the main artery was deliberately cut and removed during preparation, so this preparation explicitly does not preserve the gland's nerve connections.",
+        "citation": "p. 517-518: vagus nerve 'severed in the lower part of the neck and separated from the artery'; pp. 515, 523-524: colloid and small-vessel/capillary descriptions."
+      },
+      {
+        "category": "Biological System & Cell Origins",
+        "q": "What is the physiological relevance of this model?",
+        "qNum": 5,
+        "a": "This was a published demonstration that a whole mammalian (or bird) organ could be kept alive and fed with fluid, looking close to normal under the microscope, entirely outside the body — using only pulsing mechanical pressure and a nutrient fluid that contained no actual blood cells.",
+        "citation": "Conclusions, p. 524-525: 'The gland remains alive during the period of perfusion, which lasted from 3 to 21 days.'"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What is the physical process and operation of the device?",
+        "qNum": 12,
+        "a": "The Lindbergh apparatus is a sealed, sterilized, all-glass device. A glass tube is tied into the artery left attached when the gland is removed. The gland and its vessel are stretched flat on a small rectangular holder — a plate with slits to anchor the threads tying the artery in place, and teeth to hang the surrounding tissue on — which then slides into the glass chamber. An outside gas-pressure system, cycling between a set high and low pressure, pushes the fluid (diluted blood serum, or an artificial nutrient mix) through the vessels in pulses; there is no mechanical pump involved. The whole setup sits inside an incubator.",
+        "citation": "pp. 517-521 ('Preparation of the Thyroid', 'Setting the Gland'); Text-fig. 1 (mica holder diagram, not a perforated glass disc as an earlier version of this answer claimed)."
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "What hemodynamic forces and shear gradients play a role?",
+        "qNum": 10,
+        "a": "Pulsing pressure, at a specific setting the paper reports rather than a range: \"the pulse rate has generally been 80,\" cycling between pressures of 160 and 110 (in the paper's own units — it doesn't convert these to a more familiar pressure unit like mmHg). This visibly expands and relaxes the main artery with each pulse, and the paper notes the pulsing \"can also be detected in the thyroid artery\" itself, pushing fluid into the gland's smallest vessels.",
+        "citation": "p. 521: 'The pulse rate has generally been 80, the maximum pressure 160, and the minimum pressure 110.' p. 523: 'the carotid artery begins to pulsate. Pulsation can also be detected in the thyroid artery.'"
+      },
+      {
+        "category": "Biophysical Dynamics & Fluid Mechanics",
+        "q": "Do fluid acceleration, deceleration, angle, or orientation play a role?",
+        "qNum": 14,
+        "a": "Yes, to speeding up and slowing down: the gas-pressure system cycles between a set high and low pressure, which is what makes the artery \"begin to pulsate\" rather than receiving constant flow. This cannot be grounded in fact as a claim about a specific tilt angle, a gravity-driven vertical design, or avoiding mechanical blades that would damage blood cells — none of that is in the paper, and the fluid described here contains no actual blood cells to damage in the first place.",
+        "citation": "p. 521, 523 (pulse rate/pressure cycling, artery pulsation); p. 524 ('the circulating fluid contains neither red blood corpuscles nor hemoglobin')."
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "What was sacrificed to engineer this, and how does that impact relevance?",
+        "qNum": 6,
+        "a": "There was no way to see the gland or its cells while the experiment ran — the chamber is sealed glass, so its condition could only be judged indirectly (by the fluid's clarity and color) during the run, and examined directly only afterward, once the gland was removed and prepared for viewing under a microscope. Small side-branches off the main artery were deliberately left open rather than tied off, and allowed to bleed into the surrounding tissue; the authors state directly that this resulting swelling \"has no ill effect on the gland,\" so it was treated as an accepted part of the technique, not a problem that affected the results.",
+        "citation": "p. 522: fluid examined for 'clearness or opacity'; p. 522: 'These collaterals bleed into the connective tissue, which becomes more or less edematous. Such edema has no ill effect on the gland.'"
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How much independent control does the researcher have over variables?",
+        "qNum": 9,
+        "a": "Fine control over the gas mixture (generally 80% oxygen, 3-4% carbon dioxide, 16-17% nitrogen), the pulse rate, and the high/low pulsing pressures, all adjustable \"according to the nature of the experiment\" — plus what went into the perfusing fluid (how diluted the serum was, or whether Witte's peptone, a nutrient supplement, was added). Essentially no control at the level of individual small vessels or cells, which behaved however the gland's own existing anatomy dictated.",
+        "citation": "p. 516 (gas mixture); p. 521 ('The pulse rate is adjusted, and also the maximum and minimum pressures, according to the nature of the experiment')."
+      },
+      {
+        "category": "Engineering Control & Sacrifices",
+        "q": "How long will this work for continuously, and when does the system degrade beyond designed function?",
+        "qNum": 16,
+        "a": "Across the reported experiments, perfusion \"lasted from 3 to 21 days,\" with 6 days being the duration used for most of the main histology comparison figures. The explicit stopping rule given is pH-based: \"When the pH goes below 7, the experiment is interrupted.\" Fluid pH starts around 7.5 at the beginning of perfusion and falls progressively over about a week to roughly 7.0-7.1 or lower. The paper does not state a single \"typical\" duration — claiming \"6 to 8 days typical\" is not something it says; 6 days is simply how long most of the comparison figures happen to run.",
+        "citation": "Conclusions, p. 524-525: 'lasted from 3 to 21 days.' p. 521 (pH stopping rule). p. 523-524 (pH decline from ~7.5 toward 7.0-7.1)."
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "In what context was the data collected and interpreted (immunostaining and imaging)?",
+        "qNum": 4,
+        "a": "Purely after-the-fact examination, not live imaging: glands were chemically fixed, sliced thin, stained, and photographed at a fixed zoom level once removed from the pump. Two of the figure plates compare an untreated control thyroid from one side of an animal against the pump-treated thyroid from the other side of the same animal. Separately, small pieces of already-pumped glands were placed in a lab flask afterward, to see if their cells could still actively grow — shown for both a cat gland and a chicken gland. One inconsistency worth flagging: the paper's own body text and one of its figure captions disagree on how long the chicken sample was perfused — the text says 3 days, the caption says 8 days, with growth developing after 3 days in the flask.",
+        "citation": "Explanation of Plates, p. 525-526 (Figs. 1-12); body text p. 524-525 vs. Plate 19 caption for Fig. 12 (discrepancy as noted)."
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can you predict what will happen as a disease progresses over time?",
+        "qNum": 11,
+        "a": "Glands perfused with serum alone stayed close to their untreated control, though the paper notes even serum alone caused \"a tendency to hyperplasia and to vacuolization of the colloid\" (some extra cell growth and small gaps forming in the stored hormone substance). Adding Witte's peptone (a nutrient supplement) to the fluid produced a clearly stronger effect: noticeably larger cells and pronounced extra growth lining the follicles. The paper never uses the word \"goiter\" — that is a modern clinical label for this kind of enlargement, not a term the paper itself uses.",
+        "citation": "p. 524: 'cultivated glands show a tendency to hyperplasia and to vacuolization of the colloid. When the fluid contained some Witte's peptone, considerable increase in the size of the cells was observed... Marked proliferation of the epithelial cells.'"
+      },
+      {
+        "category": "Analytical Context, Disease & Translation",
+        "q": "How can it be used in practice, and what are the probable next steps?",
+        "qNum": 7,
+        "a": "The paper's own stated conclusion is more modest than a claim about founding modern organ-preservation machines — that connection is a reasonable observation to make today about where this technique sits historically, but it is not something the 1937 paper claims about itself. What the paper actually concludes is that \"the technique is simple enough to be used as a routine procedure for physiological or pathological studies of the thyroid gland\" — the authors saw it as a practical lab tool for studying how the thyroid works and what goes wrong with it, such as the growth response to peptone shown here.",
+        "citation": "Conclusions, p. 525, item 3."
+      }
+    ]
+  }
+}

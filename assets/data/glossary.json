@@ -1,0 +1,94 @@
+{
+  "terms": [
+    {
+      "id": "lymphangion",
+      "term": "Lymphangion",
+      "phonetic": "lim-FAN-jee-on",
+      "category": "Physiology",
+      "paper": "Paper 2 (Selahi et al.)",
+      "summary": "The pumping segment of a lymph vessel, located between two one-way valves.",
+      "detail": "A lymphangion squeezes rhythmically to push lymph forward against pressure — the way a line of hands passing a bucket keeps it moving in one direction. It is lined on the inside by a single layer of endothelial cells and wrapped on the outside by a layer of smooth muscle running around its circumference."
+    },
+    {
+      "id": "interstitial-flow",
+      "term": "Interstitial Fluid Flow (IF)",
+      "phonetic": "in-ter-STISH-ul flow",
+      "category": "Fluid Mechanics",
+      "paper": "Paper 1 & Paper 3",
+      "summary": "The slow movement of fluid through the gel-like space between cells and vessels (the extracellular matrix).",
+      "detail": "This flow is driven by pressure differences — for example, fluid leaking out of blood capillaries gets pushed toward the lymphatic vessels that drain it. In Paper 3, this flow works together with chemical signals to encourage new lymphatic vessels to grow."
+    },
+    {
+      "id": "glp",
+      "term": "Gravitational Lumen Patterning (GLP)",
+      "phonetic": "GLP",
+      "category": "Bioengineering",
+      "paper": "Paper 2 (Selahi et al.)",
+      "summary": "A fabrication technique where a microfluidic chip is turned vertical (90°) while a gel sets, so gravity pulls straight down along the flow direction and produces a round, evenly-shaped channel.",
+      "detail": "When a gel is left to set horizontally, gravity makes it sag unevenly, leaving an oval-shaped channel instead of a round one. Turning the chip vertical during setting avoids this sagging and produces a channel shaped more like a real blood or lymph vessel."
+    },
+    {
+      "id": "anastomosis",
+      "term": "Anastomosis",
+      "phonetic": "uh-nas-tuh-MOH-sis",
+      "category": "Vascular Biology",
+      "paper": "Paper 1 & Paper 3",
+      "summary": "The joining of two separate vessel branches into one continuous, connected loop.",
+      "detail": "This term doesn't actually appear in Paper 3 for what it shows — the paper's own figure captions never say \"anastomosis\" or describe sprouts fusing tip-to-tip. What the paper does show is that chemical gradients and interstitial flow together cause new sprouts to grow toward the existing vessel by Day 4 — not that they are shown physically fusing into loops at that point."
+    },
+    {
+      "id": "endocan",
+      "term": "Endocan (ESM-1)",
+      "phonetic": "EN-doh-kan",
+      "category": "Molecular Biology",
+      "paper": "Paper 3 (Tronolone et al.)",
+      "summary": "A protein (endothelial cell-specific molecule-1) that Paper 3 identifies as a strong driver of new lymphatic-vessel growth.",
+      "detail": "Paper 3 found that ESM-1 alone was enough to trigger substantial new-vessel growth in human lymphatic endothelial cells, even without the broader mix of growth factors normally used."
+    },
+    {
+      "id": "extravasation",
+      "term": "Extravasation / Transmigration",
+      "phonetic": "ex-tra-vuh-SAY-shun",
+      "category": "Immunology",
+      "paper": "Paper 1 (Gray-Scherr et al.)",
+      "summary": "The process by which immune cells, like T-cells, squeeze through the junctions between blood-vessel wall cells to leave the bloodstream and enter the surrounding tissue.",
+      "detail": "In Paper 1, treating the blood vessel network with the inflammatory signal TNF-alpha made T-cells stick to the vessel wall more and increased how many crossed into the tissue. The paper reports two separate numbers: resting (naive) T-cells crossed over 3.31 times more than in the untreated control, and already-activated T-cells crossed over 5.89 times more than resting T-cells did."
+    },
+    {
+      "id": "hyperplasia",
+      "term": "Hyperplasia",
+      "phonetic": "hy-per-PLAY-zhuh",
+      "category": "Pathology",
+      "paper": "Paper 4 (Carrel)",
+      "summary": "An increase in the number of cells in a tissue, which makes the tissue or organ grow larger.",
+      "detail": "Carrel found that thyroid glands kept alive outside the body in the Lindbergh pump, when fed a nutrient fluid containing Witte's peptone, grew new cells vigorously — evidence the gland was still fully alive and functioning, not just surviving."
+    },
+    {
+      "id": "hydrostatic-head",
+      "term": "Hydrostatic Pressure Head",
+      "phonetic": "hy-droh-STAT-ik",
+      "category": "Physics",
+      "paper": "Paper 1 & Paper 3",
+      "summary": "The pressure created by a standing column of fluid due to gravity — the same reason pressure is higher at the bottom of a pool than at the top.",
+      "detail": "In Paper 1, filling one reservoir with 40 microliters of fluid and a connected one with only 10 microliters creates a small pressure difference (9.6 Pa) between them. That difference alone pushes fluid from the blood side to the lymph side, with no pump or motor needed."
+    },
+    {
+      "id": "matrix-degradation",
+      "term": "Matrix Remodeling & Fibrinolysis",
+      "phonetic": "fy-brin-AHL-ih-sis",
+      "category": "Biochemistry",
+      "paper": "Paper 1 & Paper 3",
+      "summary": "The breakdown of the gel scaffolding (fibrin or collagen) that cells grow in, carried out by enzymes the cells themselves release.",
+      "detail": "This specific claim — that the gel breaks down on roughly a 5–7 day timescale — is not something either Paper 1 or Paper 3 actually reports. Both papers stop their experiments at a fixed point (Day 5 for Paper 1, Day 4 for Paper 3) and don't say why they stopped there or what would happen if they kept going. Enzymatic gel breakdown is a real process in biology generally, but neither paper measured it or used it to explain their results."
+    },
+    {
+      "id": "normothermic-perfusion",
+      "term": "Normothermic Machine Perfusion (NMP)",
+      "phonetic": "nor-moh-THUR-mik",
+      "category": "Bioengineering",
+      "paper": "Paper 4 (Carrel) & Frontier",
+      "summary": "A modern technique for keeping an organ alive outside the body by pumping oxygenated, body-temperature fluid through its blood vessels.",
+      "detail": "Carrel's 1937 apparatus, built around the pump Charles Lindbergh engineered, is a reasonable historical ancestor of this modern technique, but the paper itself does not claim that connection — its own stated goal is more modest: a method simple enough for routine use in studying the thyroid gland. Modern versions of this technique add filters and artificial lungs (oxygenators) to prevent tissue damage and keep organs usable for longer."
+    }
+  ]
+}
